@@ -9,16 +9,16 @@
   
   ---
 
-## Communication Scheduale
+## Communication Schedule
 
 | Day       |      How       | The topic of discussion                                      |
 | --------- | :------------: | ------------------------------------------------------------ |
 | Monday    | Zoom and Slack | Planning for the project                                     |
 | Tuesday   | Zoom and Slack | Start working on the project.                                |
-| Wednesday | Zoom and Slack | Continue with your project.                                  |
+| Wednesday | Zoom and Slack | Continue with our your project.                                  |
 | Thursday  | Zoom and Slack | Do the review together and see how far we reached.           |
 | Friday    | Zoom and Slack | If there things we need to change along the way in the project. |
-| Saturday  |                |                                                               |
+| Saturday  |                | We will meet for overview                                                                  |
 
 ## Communication Channels
 

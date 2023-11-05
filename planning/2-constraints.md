@@ -25,6 +25,6 @@ We have 3 sprints,each of them lasts 2 weeks.
 - Git
 - React
 
-### Methedology
+### Methodology
 
 - Agile

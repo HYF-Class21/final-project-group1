@@ -30,8 +30,8 @@
 
 ### What parts of your plan did not work out?
 
-- nope
+- nothing yet
 
 ### Did you need to add things that weren't in your strategy?
 
-- not yet
+- nothing for the moment

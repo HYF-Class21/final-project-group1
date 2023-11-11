@@ -1,161 +1,260 @@
-# What can i cook development strategy
+# News Now development strategy
 
 ---
-Depending on what was agreed upon in the prototype and needs in the backlog
-Below is the development strategy.
+
+Here you can find the development strategy of our website.
 
 ---
 
 ## Setup
 
-- Create a [repository](https://github.com/HYF-Class19/RCP-Team)
-- Create a [project](https://github.com/orgs/HYF-Class19/projects/37) board
-- install and create a new `Next.js` project
-- install `PrimeReact`
-- clean the default files and remove what is not needed to start working on the project
-- create and fill the planning folder
-- update the readme file
+- Create a [repository](https://github.com/HYF-Class21/final-project-group1)
+- Create a [project board](https://github.com/orgs/HYF-Class21/projects/36)
+- Clone repo
+- Install React
+- Create and fill the planning folder
+- Update the readme file
 
 ---
 
 ## Must-Haves ( v 1.0 )
 
-we will finish this milestone in 2 weeks.
+# Home
 
-### Header component
+## 1. Title-Navbar
 
-- [ ] This user story is developed on branch `11-header-v1`.
-- [ ] create a header component
-- [ ] add the logo to the left of the header
-- [ ] add the site slogan in the center of the header
-- [ ] import the component and import in all the places needed
-- [ ] add the navbar under the header with links to some filters or keep it empty links `#`
+> As a user I can easily move between different pages of the website.
 
-### Slider component
+- [ ] A navigation bar is present to allow users easy access to different sections and features of the website.
+- [ ] There is a title for the website that reflects its purpose and content.
+- [ ] This user story is developed on branch `navbar-v1`.
+- [ ] Create a navbar component
+- [ ] Add the logo/title to the left of the header
 
-- [ ] This user story is developed on branch `12-Slider-v1`.
-- [ ] create a slider component
-- [ ] let that component fetch 3 random recipes from the API
-- [ ] display the following info on it (photo, title)
-- [ ] add a button to go and display the single recipe
+### - HTML (TITLE) -
 
-### display of recipes
+- [ ] add `div` element with class name `navbar`
+- [ ] inside the `div` add `h1` with `a` tag inside for the title of "News Count"
+- [ ] add class name `logo` to `h1`
 
-- [ ] This user story is developed on branch `13-recipes-display-v1`.
-- [ ] create a filter component
-- [ ] return the list of all the recipes without filters and with pagination to display 3 by 4 recipes in the right part with (photo, level, duration, title, and summary)
+### - CSS (TITLE) -
 
-### filter component
+- [ ] add `background-color`
+- [ ] add `color`
+- [ ] add `height`
 
-- [ ] This user story is developed on branch `14-filter-v1`.
-- [ ] update the filter component
-- [ ] let the user write the included ingredient
-- [ ] let the user write the excluded ingredient
-- [ ] choose the origin of the recipe
-- [ ] choose the dietary
-- [ ] and return the filtered list of the recipes.
+### - HTML (NAVBAR)
 
-### footer component
+- [ ] add `nav` element under `h1`
+- [ ] add `ul` element with 3 `li` elements for Home, Features, and Docs nested
+      inside `a` tags
+- [ ] add links to each `a` tag:
+  - `<a href="index.html">Home</a>`
+  - `<a href="features.html">Features</a>`
+  - `<a href="docs.html">Docs</a>`
 
-- [ ] This user story is developed on branch `15-footer-v1`.
-- [ ] create a footer component
-- [ ] add links to (about us, contact, and term of use) pages to the left
-- [ ] add the social media icons with links on the right
+### - CSS (NAVBAR)-
 
-### single recipe component
+- [ ] set justify-content to `space-between` in class `navbar`
+- [ ] set display to `flex` for `ul` element
+- [ ] add `color` `padding` and `margin` to `a` elements
+- [ ] add `hover` styling to `a` elements
 
-- [ ] This user story is developed on branch `16-single-v1`.
-- [ ] create a single recipe component
-- [ ] display the following details about the recipe to be as possible as the design ( title, duration, level, number of persons, photo, ingredient, instructions)
-  
-### about component
+## 2.1 Login Navbar
 
-- [ ] This user story is developed on branch `17-about-v1`.
-- [ ] create an about component
-- [ ] fill it with static details about the site
+> As a user I can log in to my account.
+
+### - HTML -
+
+- [ ] add a login button in the header/navbar
+- [ ] add an `a` tag for 'Login' in the navbar
+
+### - CSS -
+
+- [ ] set justify-content to `space-between` in class `navbar`
+- [ ] set display to `flex` for `ul` element
+- [ ] add `color` `padding` and `margin` to `a` elements
+- [ ] add `hover` styling to `a` elements
+
+## 2.2 Login Form
+
+- [ ] There is a login form in the header.
+- [ ] There is a user account page to which the user will be redirected after sending the form with correct data.
+
+### - HTML
+
+- [ ] add a `form` element
+- [ ] add an `input` field with type="text" for the username
+- [ ] add an `input` field with type="password" for the password
+- [ ] add a `button` with type="submit" to submit the form
+
+### - CSS -
+
+- [ ] set justify-content to `space-between` in class `navbar`
+- [ ] set display to `flex` for `ul` element
+- [ ] add `color` `padding` and `margin` to `a` elements
+- [ ] add `hover` styling to `a` elements
+
+## 3.1 Register Navbar
+
+> As a user I can create accounts by filling out a registration form.
+
+- [ ] There is a register form in the header of the website.
+- [ ] A popup shows up upon sending the form.
+
+### - HTML
+
+- [ ] add a login button in the header/navbar
+- [ ] add an `a` tag for 'Login' in the navbar
+
+### - CSS -
+
+- [ ] set justify-content to `space-between` in class `navbar`
+- [ ] set display to `flex` for `ul` element
+- [ ] add `color` `padding` and `margin` to `a` elements
+- [ ] add `hover` styling to `a` elements
+
+## 3.2 Register Form
+
+### - HTML
+
+- [ ] add a `form` element
+- [ ] add an `input` field with type="text" for the username
+- [ ] add an `input` field with type="password" for the password
+- [ ] add a `button` with type="submit" to submit the form
+
+### - CSS -
+
+- [ ] set justify-content to `space-between` in class `navbar`
+- [ ] set display to `flex` for `ul` element
+- [ ] add `color` `padding` and `margin` to `a` elements
+- [ ] add `hover` styling to `a` elements
+
+## 4.1 Payment navbar
+
+> A payment form is available for users to make payments securely.
+
+### - HTML
+
+- [ ] add a payment plans button in the header/navbar
+- [ ] add an `a` tag for 'Login' in the navbar
+
+### - CSS -
+
+- [ ] set justify-content to `space-between` in class `navbar`
+- [ ] set display to `flex` for `ul` element
+- [ ] add `color` `padding` and `margin` to `a` elements
+- [ ] add `hover` styling to `a` elements
+
+## 4.2 Payment form
+
+### - HTML -
+
+- [ ] add a payment plans button in the header/navbar
+- [ ] add an `a` tag for 'Payment Plans' in the navbar
+
+### - CSS -
+
+- [ ] set justify-content to `space-between` in class `navbar`
+- [ ] add `color` `padding` and `margin` to `a` elements
+- [ ] add `hover` styling to `a` elements
+
+## 5. Payment plans
+
+> As a user I can choose from different payment plans, such as monthly or yearly subscriptions.
+
+- [ ] There is a page explaining different payment plans.
+
+### - HTML -
+
+- [ ] Add an HTML `div` element to serve as the container for the payment plan component.
+- [ ] Inside the `div`, add an `h2` element to display the duration of the payment plan (e.g., "1 Year," "Monthly," etc.).
+- [ ] Add an `h1` element to display the price or cost of the payment plan.
+- [ ] Include a `p` element to provide a description or details about the payment plan.
+- [ ] Add a `button` element with the text "Pay" to allow users to initiate the payment.
+
+### - CSS -
+
+- [ ] Center the elements vetrically.
+
+## 6. Home page
+
+> As a user I can see the most poopular articles in one place.
+
+- [ ] The main component of the website displays article cards.
+- [ ] Each of the article cards contains an image and a title of the article.
+
+### - HTML -
+
+- [ ] Add an HTML `div` element to serve as the container for the news article component.
+- [ ] Inside the `div`, add an `img` element to display the image associated with the news article.
+- [ ] Include an `h2` or `h3` element to display the title of the news article.
+- [ ] Add a `p` element to provide a description or summary of the news article.
+
+### - CSS -
+
+- [ ] Center the elements vertically.
+
+## 7. Artcle component
+
+> As a user I can view full articles on a dedicated page with all the content and details.
+
+- [ ] There is a page which displays the article from the api.
+- [ ] Each of the article cards contains a link to a page with the full article.
+
+### - HTML -
+
+- [ ] Add an HTML `div` element to serve as the container for the news article component.
+- [ ] Inside the `div`, add an `img` element to display the image associated with the news article. Use the src attribute to specify the image - - - [ ] source and the alt attribute for alternative text.
+- [ ] Include an `h2` or `h3` element to display the title of the news article.
+- [ ] Add a `p` element to provide the text or content of the news article.
+
+### - CSS -
+
+- [ ] Stretch the image across the screen.
+- [ ] Put the title of the news article at the bottom of the image.
+- [ ] Style the text so that it looks organized.
+
+## 8. Filter navbar
+
+> Filter articles
+
+- [ ] Users can filter articles based on categories, tags, or other criteria for content discovery.
+- [ ] Make a navbar underneath the main one consisting of a list of the available categories of news. 
+
+### - HTML -
+
+- [ ] Add an HTML `nav` element to create the navbar.
+- [ ] Add the necessary names of categories using the `ul` `li` elements. 
+
+### - CSS -
+
+- [ ] Style the navbar according to the website's color code.
+
+## 9. Sort by button
+
+> Sort articles
+
+- [ ] Users have the ability to sort articles by criteria such as date, popularity, or relevance.
+- [ ] Make a dropdown list of the available options of how the user can sort the articles by.
+
+### - HTML -
+
+- [ ] Add an HTML `button` element to create the Sort By button.
+- [ ] Use the button's type attribute and set it to "button" to specify that it's a button for user interaction, not a submit button for a form.
+- [ ] Provide a meaningful label or text for the button that indicates its filtering function (e.g., "Sort By").
+- [ ] Optionally, use the class or id attributes to give the button a specific identifier for styling or scripting purposes.
+
+### - CSS -
+
+- [ ] Style the button according to the website's color code.
 
 ---
 
-## Should have (v 2.0 )
-
-we will finish this milestone in 2 weeks.
-
-### random recipe
-
-- [ ] This user story is developed on branch `18-random-v2`.
-- [ ] add random recipe links on the navBar and when the user clicks on it it should display a random recipe
-
-### kitchen
-
-- [ ] This user story is developed on branch `19-kitchen-v2`.
-- [ ] add a dropdown menu in the navBar to display all the menu origins and when the user clicks on a kitchen it should display in the filter page all the recipe related to that kitchen
-
-### Dietary
-
-- [ ] This user story is developed on branch `20-dietary-v2`.
-- [ ] add a dropdown menu in the navBar to display all the Dietaries and when the user clicks on a Dietary it should display in the filter page all the recipes related to that Dietary
-
-### contact component
-
-- [ ] This user story is developed on branch `21-contact-v2`.
-- [ ] create a contact component
-- [ ] add contact info
-- [ ] add a contact form
-
-### term of use component
-
-- [ ] This user story is developed on branch `22-termOfUse-v2`.
-- [ ] create a term of use component
-- [ ] fill is with a static term of use details
-
-### sign-up component
-
-- [ ] This user story is developed on branch `23-signup-v2`.
-- [ ] create a sign-up component
-- [ ] the user needs to provide a name, email, and password
-- [ ] check if the user is already registered in our DB
-- [ ] the password should encrypt in the DB
-
-### sign-in component
-
-- [ ] This user story is developed on branch `24-signin-v2`.
-- [ ] create a sign-in component
-- [ ] when the user sign-in correctly his name should display on the right top
-
-### reset password component
-
-- [ ] This user story is developed on branch `25-reset-v2`.
-- [ ] create a reset password component
-- [ ] the user needs to provide his email and we will send a reset link if the email is correct
-- [ ] when the user follows the link we let him create a new password
+## Should haves (v 1.0 )
 
 ---
 
-## Could have ( v 3.0 )
+## Could haves ( v 1.0 )
 
-we will finish this milestone in 2 weeks.
-
-### rating component
-
-- [ ] This user story is developed on branch `26-rating-v3`.
-- [ ] create a rating component
-- [ ] the user will be able to rate and recipe 1 time so we need to store the following info about that (rating number from 1-5, user id, recipe id)
-
-### comment component
-
-- [ ] This user story is developed on branch `27-comment-v3`.
-- [ ] create a comment component
-- [ ] the user would write as many comments as he wants
-- [ ] we will store the user id, comment, and recipe id
-
-### wishlist component
-
-- [ ] This user story is developed on branch `28-wishlist-v3`.
-- [ ] create a wishlist component
-- [ ] the user will be able to add any recipe to his wishlist
-
-### add a recipe component
-
-- [ ] This user story is developed on branch `29-add-recipe-v3`.
-- [ ] create add a recipe component
-- [ ] the user needs to fill in all the info needed
+---

@@ -1,0 +1,22 @@
+.article-card {
+    width: 300px;
+    border: 1px solid #ddd; 
+    margin: 10px; 
+}
+
+.book-details-parts img {
+    width: 100%;
+    height: auto;
+}
+
+.details {
+    float: left;
+}
+
+.title {
+    margin-top: 0; /* Remove default margin for h2 element */
+}
+
+.description {
+    margin-top: 0; /* Remove default margin for p element */
+}

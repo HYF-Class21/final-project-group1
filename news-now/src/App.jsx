@@ -1,24 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { useNews } from './hooks'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-function App() {
-  
-  let data = []
-  for (let news of useNews()) {
-    data.push(news);
-  }
+import './App.css';
+import AllNewsPage from './pages/AllNewsPage';
+import ArticlePage from './pages/ArticlePage';
+import PaymentsPage from './pages/PaymentsPage';
+import LogoutPage from './pages/LogoutPage';
 
-  return (
-    <>
-      {data.map( (news) => (
-          news.title
-      )
-      )}
-    </>
-  )
-}
+const App = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<AllNewsPage />} />
+                <Route path="/article/:id" element={<ArticlePage />} />
+                <Route path="/payments" element={<PaymentsPage />} />
+                <Route path="/logout" element={<LogoutPage />} />
+            </Routes>
+        </Router>
+    );
+};
 
-export default App
+export default App;

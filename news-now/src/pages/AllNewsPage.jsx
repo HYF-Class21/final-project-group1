@@ -1,7 +1,7 @@
-import styles from './AllNewsPage.module.css';
-import Navbar from '../components/Navbar';
+import styles from "./AllNewsPage.module.css";
+import Navbar from "../components/Navbar";
 
-import { useNews } from '../hooks';
+import { useNews } from "../hooks";
 
 const AllNewsPage = () => {
   let data = [];
@@ -12,6 +12,10 @@ const AllNewsPage = () => {
 
   return (
     <>
+      <div>
+        <Navbar />
+        AllNewsPage
+      </div>
       {data.map((news) => (
         <div key={news.title}>
           <a href={news.url}>{news.title}</a>
@@ -22,6 +26,6 @@ const AllNewsPage = () => {
       ))}
     </>
   );
-}
+};
 
 export default AllNewsPage;

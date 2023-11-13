@@ -1,22 +1,28 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import { useNews } from "./hooks";
 
-import './App.css';
-import AllNewsPage from './pages/AllNewsPage';
-import ArticlePage from './pages/ArticlePage';
-import PaymentsPage from './pages/PaymentsPage';
-import LogoutPage from './pages/LogoutPage';
+function App() {
+  let data = [];
 
-const App = () => {
-    return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<AllNewsPage />} />
-                <Route path="/article/:id" element={<ArticlePage />} />
-                <Route path="/payments" element={<PaymentsPage />} />
-                <Route path="/logout" element={<LogoutPage />} />
-            </Routes>
-        </Router>
-    );
-};
+  for (let news of useNews("us", "sports", "bbc-news")) {
+    data.push(news);
+  }
+
+  return (
+    <>
+      {data.map((news) => (
+        <div key={news.title}>
+          <a href={news.url}>{news.title}</a>
+          <div>{news.author}</div>
+          <div>{news.description}</div>
+          <div>{news.content}</div> <hr />
+        </div>
+      ))}
+    </>
+  );
+}
 
 export default App;

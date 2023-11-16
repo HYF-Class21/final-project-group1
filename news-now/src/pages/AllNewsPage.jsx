@@ -1,8 +1,11 @@
 import styles from './AllNewsPage.module.css';
+import useNews from '../hooks/useNews';
 import Navbar from '../components/Navbar';
 import LoginForm from '../components/LoginForm';
 
 const AllNewsPage = () => {
+  let data = [];
+  
   for (let news of useNews("us", "sports", "bbc-news")) {
     data.push(news);
   }

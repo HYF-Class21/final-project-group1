@@ -43,10 +43,10 @@ const LoginForm = () => {
   };
 
   return (
-    <div>
+    <div className={styles.loginComponent}>
       <p className={error}>{error}</p>
       <div className={styles.formContainer}>
-        <h1 className={styles.formContainerH1}>Login form</h1>
+        <h1 className={styles.formContainerH1}>Login</h1>
         <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
           <label htmlFor="email">Email: </label>
           <input
@@ -64,7 +64,7 @@ const LoginForm = () => {
             value={password}
             onChange={(e) => handlePassword(e)}
           />
-          <button type="submit">Send</button>
+          <button type="submit">Login</button>
         </form>
       </div>
     </div>

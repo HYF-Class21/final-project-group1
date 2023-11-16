@@ -1,9 +1,20 @@
 import styles from './AllNewsPage.module.css';
-import useNews from '../hooks/useNews';
+import { useGlobalState } from '../context/GlobalStateContext';
+import { useNews } from "../hooks";
+
 import Navbar from '../components/Navbar';
 import LoginForm from '../components/LoginForm';
 
+
 const AllNewsPage = () => {
+  const {
+    isLoggedIn,
+    setIsLoggedIn,
+    isPayed,
+    setIsPayed
+  } = useGlobalState();
+
+
   let data = [];
   
   for (let news of useNews("us", "sports", "bbc-news")) {

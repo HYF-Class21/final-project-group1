@@ -66,6 +66,13 @@ const LoginForm = () => {
           />
           <button type="submit">Login</button>
         </form>
+        <p className={styles.formContainerP}>Do not have an account?</p>
+                <p className={styles.formContainerP}>
+                    Please,{' '}
+                    <span>
+                        Sign up
+                    </span>
+                </p>
       </div>
     </div>
   );

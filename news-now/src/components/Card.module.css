@@ -1,0 +1,22 @@
+div {
+  padding: 2px;
+}
+
+.card {
+  width: 500px;
+  font-size: 26px;
+  border: 1px solid black;
+  margin: 50px;
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.gray {
+  color: gray;
+}

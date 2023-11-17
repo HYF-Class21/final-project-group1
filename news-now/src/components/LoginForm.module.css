@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
+
+.formComponent {
+  font-family: 'Inter', sans-serif;
+}
+
 .error {
   font-size: 25px;
   text-align: center;
@@ -10,9 +16,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 9px;
-  border: 5px solid #b61515;
-  margin-top: 30px;
+  border-radius: 25px;
+  background-color: white;
+  font-family: 'Inter', sans-serif;
 }
 
 .formContainerH1 {
@@ -27,6 +33,11 @@
   align-items: center;
   width: 300px;
   margin: 0 auto;
+  background-color: white;
+}
+
+.formContainerP {
+  margin: 0;
 }
 
 .form label {
@@ -45,6 +56,7 @@ input[type='password'] {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .form button {
@@ -56,4 +68,5 @@ input[type='password'] {
   border: none;
   border-radius: 5px;
   font-size: 20px;
+  margin: 15px 0;
 }

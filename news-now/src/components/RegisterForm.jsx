@@ -1,48 +1,43 @@
-import styles from "./LoginForm.module.css";
-import { useState, useEffect } from "react";
-import { useGlobalState } from "../context/GlobalStateContext";
-import Cookies from "js-cookie";
+import styles from "./RegisterForm.module.css";
+import { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import validateEmail from "../utils/validateEmail.js";
 import validatePassword from "../utils/validatePassword.js";
+import matchPasswords from "../utils/matchPasswords.js";
 
-const LoginForm = ({
+const RegisterForm = ({
   activeLogin,
   setActiveLogin,
   activeRegister,
   setActiveRegister,
 }) => {
-  const { isLoggedIn, setIsLoggedIn } = useGlobalState();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-
-  useEffect(() => {
-    console.log('isLoggedIn changed:', isLoggedIn);
-  }, [isLoggedIn]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const emailIsValid = validateEmail(email);
     const passwordIsValid = validatePassword(password);
+    const isMatch = matchPasswords(password, confirmPassword);
 
-    if (emailIsValid && passwordIsValid) {
-      const login = () => {
+    if (emailIsValid && passwordIsValid && isMatch) {
+      const register = () => {
         try {
-          Cookies.set("email", email);
-          Cookies.set("isLoggedIn", true);
           setEmail("");
           setPassword("");
-          setIsLoggedIn(true);
-          setActiveLogin(false);
-          window.location.reload();
+          setError("");
+          setConfirmPassword("");
+          setActiveRegister(false);
+          setActiveLogin(true);
         } catch {
-          setError("Error while log in");
+          setError("Error while register");
         }
       };
-      login();
+      register();
     } else {
       setError("Email or password is not valid");
     }
@@ -56,54 +51,67 @@ const LoginForm = ({
     setPassword(e.target.value);
   };
 
+  const handleConfirmPassword = (e) => {
+    setConfirmPassword(e.target.value);
+  };
+
   return (
-    <div className={styles.loginComponent}>
+    <div className={styles.registerComponent}>
       <p className={styles.error}>{error}</p>
       <div className={styles.formContainer}>
-        <div className={[styles.iconDiv, styles.marginTop].join(' ')}>
+        <div className={styles.iconDiv}>
           <FontAwesomeIcon
             onClick={() => {
+              setActiveRegister(false);
               setEmail("");
               setPassword("");
               setError("");
-              setActiveLogin(false);
+              setConfirmPassword("");
             }}
             icon={faXmark}
             style={{ color: "#000000", fontSize: "30px" }}
           />
         </div>
-        <h1 className={styles.formContainerH1}>Login</h1>
+        <h1 className={styles.formContainerH1}>Register</h1>
         <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
-          <label htmlFor="email">Email: </label>
+          <label htmlFor="emailReg">Email: </label>
           <input
             type="email"
-            name="email"
-            id="email"
+            name="emailReg"
+            id="emailReg"
             value={email}
             onChange={(e) => handleEmail(e)}
           />
-          <label htmlFor="password">Password: </label>
+          <label htmlFor="passwordReg">Password: </label>
           <input
             type="password"
-            name="password"
-            id="password"
+            name="passwordReg"
+            id="passwordReg"
             value={password}
             onChange={(e) => handlePassword(e)}
           />
+          <label htmlFor="confirmPassword">Confirm password: </label>
+          <input
+            type="password"
+            name="confirmPassword"
+            id="confirmPassword"
+            value={confirmPassword}
+            onChange={(e) => handleConfirmPassword(e)}
+          />
           <button type="submit" onClick={handleSubmit}>
-            Login
+            Register
           </button>
         </form>
-        <p className={styles.formContainerP}>Do not have an account?</p>
-        <p className={[styles.formContainerP, styles.marginBottom].join(' ')}>
+        <p className={styles.formContainerP}>Already have an account?</p>
+        <p className={styles.formContainerP}>
           Please,{" "}
           <span
             onClick={() => {
-              setActiveLogin(false);
-              setActiveRegister(true);
+              setActiveRegister(false);
+              setActiveLogin(true);
             }}
           >
-            Sign up
+            Sign in
           </span>
         </p>
       </div>
@@ -111,4 +119,4 @@ const LoginForm = ({
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

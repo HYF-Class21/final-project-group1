@@ -12,7 +12,7 @@
 
 .formContainer {
   width: 400px;
-  height: 460px;
+  height: 550px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -83,12 +83,4 @@ input[type='password'] {
   border-radius: 5px;
   font-size: 20px;
   margin: 15px 0;
-}
-
-.marginBottom {
-  margin-bottom: 20px;
-}
-
-.marginTop {
-  margin-top: 15px;
 }

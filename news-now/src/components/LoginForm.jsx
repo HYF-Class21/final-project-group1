@@ -1,29 +1,31 @@
 import styles from "./LoginForm.module.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useGlobalState } from '../context/GlobalStateContext';
 import Cookies from 'js-cookie';
 
 import validateEmail from "../utils/validateEmail.js";
 import validatePassword from "../utils/validatePassword.js";
 
-const LoginForm = () => {
+const LoginForm = ({ active, setActive }) => {
+  const { isLoggedIn, setIsLoggedIn } = useGlobalState();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
-  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const emailIsValid = validateEmail(email);
     const passwordIsValid = validatePassword(password);
+
     if (emailIsValid && passwordIsValid) {
       const login = async () => {
         try {
           Cookies.set('email', email);
           setEmail("");
           setPassword("");
-          navigate("/article/1");
+          setIsLoggedIn(true);
+          setActive(false);
+          location.reload();
         } catch {
           setError("Error while log in");
         }
@@ -44,7 +46,7 @@ const LoginForm = () => {
 
   return (
     <div className={styles.loginComponent}>
-      <p className={error}>{error}</p>
+      <p className={styles.error}>{error}</p>
       <div className={styles.formContainer}>
         <h1 className={styles.formContainerH1}>Login</h1>
         <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
@@ -64,7 +66,7 @@ const LoginForm = () => {
             value={password}
             onChange={(e) => handlePassword(e)}
           />
-          <button type="submit">Login</button>
+          <button type="submit" onClick={handleSubmit}>Login</button>
         </form>
         <p className={styles.formContainerP}>Do not have an account?</p>
                 <p className={styles.formContainerP}>

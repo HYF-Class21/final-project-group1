@@ -19,10 +19,6 @@ const LoginForm = ({
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    console.log('isLoggedIn changed:', isLoggedIn);
-  }, [isLoggedIn]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const emailIsValid = validateEmail(email);

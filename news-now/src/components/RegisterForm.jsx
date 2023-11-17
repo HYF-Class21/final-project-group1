@@ -17,6 +17,7 @@ const RegisterForm = ({
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [termsChecked, setTermsChecked] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,6 +34,7 @@ const RegisterForm = ({
           setConfirmPassword("");
           setActiveRegister(false);
           setActiveLogin(true);
+          setTermsChecked(false);
         } catch {
           setError("Error while register");
         }
@@ -53,6 +55,10 @@ const RegisterForm = ({
 
   const handleConfirmPassword = (e) => {
     setConfirmPassword(e.target.value);
+  };
+
+  const handleTermsChange = () => {
+    setTermsChecked(!termsChecked);
   };
 
   return (
@@ -98,7 +104,17 @@ const RegisterForm = ({
             value={confirmPassword}
             onChange={(e) => handleConfirmPassword(e)}
           />
-          <button type="submit" onClick={handleSubmit}>
+          <div className={styles.checkbox}>
+            <input
+              className={styles.marginRight}
+              type="checkbox"
+              id="termsCheckbox"
+              checked={termsChecked}
+              onChange={handleTermsChange}
+            />
+            <label htmlFor="termsCheckbox">I accept Terms and Conditions on this website</label>
+          </div>
+          <button type="submit" onClick={handleSubmit} disabled={!termsChecked}>
             Register
           </button>
         </form>

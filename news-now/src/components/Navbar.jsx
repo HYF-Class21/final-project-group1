@@ -1,23 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import { useGlobalState } from "../context/GlobalStateContext";
 
 import Modal from "../components/Modal";
 import LoginForm from "../components/LoginForm";
+import RegisterForm from "./RegisterForm";
 
 const Navbar = () => {
   const { isLoggedIn } = useGlobalState();
-  const [modalActive, setModalActive] = useState(false);
-  const [selectedNav, setSelectedNav] = useState('home');
+  const [modalActiveLogin, setModalActiveLogin] = useState(false);
+  const [modalActiveRegister, setModalActiveRegister] = useState(false);
 
   return (
     <div className={styles.navbar}>
-      <Modal active={modalActive} setActive={setModalActive}>
-        <LoginForm active={modalActive} setActive={setModalActive} />
+      <Modal active={modalActiveLogin} setActive={setModalActiveLogin}>
+        <LoginForm
+          activeLogin={modalActiveLogin}
+          setActiveLogin={setModalActiveLogin}
+          activeRegister={modalActiveRegister}
+          setActiveRegister={setModalActiveRegister}
+        />
+      </Modal>
+      <Modal active={modalActiveRegister} setActive={setModalActiveRegister}>
+        <RegisterForm
+          activeRegister={modalActiveRegister}
+          setActiveRegister={setModalActiveRegister}
+          activeLogin={modalActiveLogin}
+          setActiveLogin={setModalActiveLogin}
+        />
       </Modal>
       <ul className={styles.ul}>
-        <li className={styles.li} >
+        <li className={styles.li}>
           <Link className={styles.a} to="/">
             Home
           </Link>
@@ -28,7 +42,7 @@ const Navbar = () => {
           </Link>
         </li>
         {!isLoggedIn ? (
-          <li className={styles.li} onClick={() => setModalActive(true)}>
+          <li className={styles.li} onClick={() => setModalActiveLogin(true)}>
             <Link className={styles.a} to="">
               Login
             </Link>

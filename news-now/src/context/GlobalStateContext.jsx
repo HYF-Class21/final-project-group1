@@ -1,9 +1,10 @@
 import { createContext, useContext, useState } from 'react';
+import Cookies from "js-cookie";
 
 const GlobalStateContext = createContext();
 
 const GlobalStateProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get("isLoggedIn") === "true");
   const [isPayed, setIsPayed] = useState(false);
 
   const contextValue = {

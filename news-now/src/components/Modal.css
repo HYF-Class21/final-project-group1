@@ -19,17 +19,9 @@
   pointer-events: auto;
 }
 
-.modalContent {
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background-color: white;
-  width: 50%;
-  transform: scale(0.9);
-  transition: transform 400ms;
-}
-
 .modalContent.active {
   transform: scale(1);
   position: absolute;
+  top: 90px;
   z-index: 10;
 }

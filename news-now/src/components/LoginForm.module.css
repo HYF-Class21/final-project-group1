@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
+
+.formComponent {
+  font-family: 'Inter', sans-serif;
+}
+
+.error {
+  font-size: 25px;
+  text-align: center;
+  color: white;
+}
+
+.formContainer {
+  width: 400px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  background-color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+.formContainerH1 {
+  margin: 0 0 30px 0;
+  color: black;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.formContainerP {
+  margin: 0;
+  font-size: 18px;
+  margin-top: 8px;
+}
+
+.formContainerP span {
+  text-decoration: underline;
+}
+
+
+.form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 20px;
+  width: 100%;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='number'],
+input[type='password'] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.form button {
+  display: block;
+  width: 107.5%;
+  padding: 10px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  margin: 15px 0;
+}

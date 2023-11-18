@@ -1,11 +1,12 @@
-import styles from "./AllNewsPage.module.css";
-import { useGlobalState } from "../context/GlobalStateContext";
+import styles from './AllNewsPage.module.css';
+import { useGlobalState } from '../context/GlobalStateContext';
 import { useState } from "react";
-import Navbar from "../components/Navbar";
+import Navbar from '../components/Navbar';
 
 import { useNews } from "../hooks";
 
 import Card from "../components/Card";
+
 
 const AllNewsPage = () => {
   const { isLoggedIn, setIsLoggedIn, isPayed, setIsPayed } = useGlobalState();
@@ -25,7 +26,6 @@ const AllNewsPage = () => {
     <>
       <div>
         <Navbar />
-        AllNewsPage
       </div>
       <div>
         <div>

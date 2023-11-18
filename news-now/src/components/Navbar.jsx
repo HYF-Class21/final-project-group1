@@ -4,18 +4,20 @@ import { Link } from "react-router-dom";
 import { useGlobalState } from "../context/GlobalStateContext";
 
 import Modal from "../components/Modal";
+import LoginForm from "../components/LoginForm";
 
 const Navbar = () => {
   const { isLoggedIn } = useGlobalState();
   const [modalActive, setModalActive] = useState(false);
+  const [selectedNav, setSelectedNav] = useState('home');
 
   return (
     <div className={styles.navbar}>
       <Modal active={modalActive} setActive={setModalActive}>
-        <h1>Here will be the login and register forms!</h1>
+        <LoginForm active={modalActive} setActive={setModalActive} />
       </Modal>
       <ul className={styles.ul}>
-        <li className={styles.li}>
+        <li className={styles.li} >
           <Link className={styles.a} to="/">
             Home
           </Link>

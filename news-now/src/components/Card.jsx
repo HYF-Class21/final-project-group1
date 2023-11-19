@@ -2,9 +2,9 @@ import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
 // import { useGlobalState } from "../context/GlobalStateContext";
 
-const Card = ({ article }) => {
+const Card = ({ article, index }) => {
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} ${styles['art' + index]}`}>
       <div className={styles.img}>
         <img
           style={{ width: "100%", height: "100%" }}

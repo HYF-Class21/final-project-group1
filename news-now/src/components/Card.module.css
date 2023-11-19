@@ -3,11 +3,18 @@ div {
 }
 
 .card {
-  width: 500px;
-  font-size: 26px;
-  border: 1px solid black;
-  margin: 50px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+.art0 { grid-area: art0; }
+.art1 { grid-area: art1; }
+.art2 { grid-area: art2; }
+.art3 { grid-area: art3; }
+.art4 { grid-area: art4; }
+.art5 { grid-area: art5; }
+.art6 { grid-area: art6; }
+.art7 { grid-area: art7; }
 
 .border {
   border: 1px solid black;

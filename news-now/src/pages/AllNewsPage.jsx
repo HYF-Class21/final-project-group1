@@ -1,27 +1,28 @@
-import styles from './AllNewsPage.module.css';
-import { useGlobalState } from '../context/GlobalStateContext';
+import styles from "./AllNewsPage.module.css";
+import { useGlobalState } from "../context/GlobalStateContext";
 import { useState } from "react";
-import Navbar from '../components/Navbar';
+import Navbar from "../components/Navbar";
 
 import { useNews } from "../hooks";
-import { articles } from '../data';
+import { articles } from "../data";
 
 import Card from "../components/Card";
-
-
 
 const AllNewsPage = () => {
   const { isLoggedIn, setIsLoggedIn, isPayed, setIsPayed } = useGlobalState();
   const [filters, setFilters] = useState({ country: "tw", category: "sports" });
 
   let data = [];
-  
+
   // for (let article of useNews(filters)) { // api call
-  for (let article of articles) { 
-  if (article.category === filters.category && article.country === filters.country ) {
-    data.push(article);
+  for (let article of articles) {
+    if (
+      article.category === filters.category &&
+      article.country === filters.country
+    ) {
+      data.push(article);
+    }
   }
-}
 
   const handleCountryChange = (event) => {
     setFilters((filters) => ({ ...filters, country: event.target.value }));
@@ -78,7 +79,7 @@ const AllNewsPage = () => {
             <input
               type="radio"
               value="health"
-              checked={filters.category === "health"} 
+              checked={filters.category === "health"}
               onChange={handleCategoryChange}
             />
             health
@@ -108,18 +109,10 @@ const AllNewsPage = () => {
         </div>
       </div>
 
-
-
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "flex-end",
-          flexWrap: "wrap",
-        }}
-      >
-        {data.map((article) => (
-          <Card key={article.title} article={article} />
-        ))}
+      <div className={styles.articlesContainer}>
+        {data.slice(0, 8).map((article, index) => {
+          return <Card key={article.title} article={article} index={index}/>;
+        })}
       </div>
     </>
   );

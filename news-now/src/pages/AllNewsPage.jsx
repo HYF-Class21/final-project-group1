@@ -4,6 +4,7 @@ import { useState } from "react";
 import Navbar from '../components/Navbar';
 
 import { useNews } from "../hooks";
+import { articles } from '../data';
 
 import Card from "../components/Card";
 
@@ -13,8 +14,9 @@ const AllNewsPage = () => {
   const [filters, setFilters] = useState({ country: "us", category: "sports" });
 
   let data = [];
-
-  for (let article of useNews(filters)) {
+  
+  // for (let article of useNews(filters)) { // api call
+  for (let article of articles) { // get local json
     data.push(article);
   }
 
@@ -26,6 +28,7 @@ const AllNewsPage = () => {
     <>
       <div>
         <Navbar />
+        AllNewsPage
       </div>
       <div>
         <div>

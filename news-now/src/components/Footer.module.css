@@ -1,0 +1,99 @@
+
+
+
+
+
+.footer {
+    background-color: #000;
+    color: rgba(135, 7, 7, 0.749)979;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 1493px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    border-style: solid;
+    border-color: #696363;
+    border-radius: 20px;  
+}
+
+.footer h3 {
+    text-align: left;
+    font-size:32px;
+    color: #fff ;
+    
+}
+
+.footer input{
+    border: solid red;
+    border-style: inset;
+    border-radius: 8px;
+}
+
+.footer button{
+    border:solid red;
+    border-radius: 7px;
+}
+
+
+.info{
+  
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+   
+}
+
+.reg h1{
+     font-weight: lighter;
+     color:#fff;
+     font-family: sans-serif;
+     font-style: oblique;
+     text-align: center;
+     margin-left: -447%;
+     justify-content: center;
+}
+
+      
+
+
+
+
+
+
+
+
+.info h2 {
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #fff;
+    font-size: smaller;
+    margin-bottom: auto;
+    margin-left: 200px;
+    padding-bottom: 0px;
+    font-style: oblique;
+}
+
+
+
+
+
+.text-center {
+    background-color:#fff ;
+}
+
+
+
+
+.img {
+    display: flex;
+    width: 200px;
+    overflow: auto;
+    width: 100px;
+    height: 100px;
+    background-color: #000;
+    flex-shrink: 0;
+  }
+

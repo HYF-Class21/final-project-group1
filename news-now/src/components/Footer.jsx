@@ -6,7 +6,8 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
         <section>
-            <h3>News Now</h3>
+            <h3>Register for free</h3>
+
             <form>
                 <input type="email"></input>
                 <button type="button" outline color="#000">
@@ -17,17 +18,29 @@ const Footer = () => {
         </section>
         <section className={styles.info}>
              {/* example of copyright container  */}
+             <form>
           <div
             className="text-center"
-            style={{ backgroundcolor: "#fff" }}>
+            style={{ backgroundcolor: "rgba(0, 0, 0, 0.2)", }}>
           </div>
-          <a className="text-white" href="">
+          <a className="text-white" href="#">
             <h2>2023 © News Now </h2>
           </a>
-
-          <from>
-            
-          </from>
+          </form>
+        <section>
+            <ul>
+        <li>
+                  <a href='#!' className='text-white'>
+                    
+                  </a>
+                </li>
+                <li>
+                  <a href='#!' className='text-white'>
+                    
+                  </a>
+                </li>
+                </ul>
+        </section>
           {/* example of copyright container  */}
         </section>
         <section className={styles.reg}>
@@ -35,29 +48,28 @@ const Footer = () => {
             className="text-center"
             style={{ backgroundcolor: "#fff" }}>
                 <a className="text-white" href="">
-            <h1> Register for free</h1>
+            <h1> News Now</h1>
             </a>
 
             </div>
+ 
+
+            <section className={styles.plan}>
+                <div className="text-content"
+                style={{background:""}}> 
+                <a className="text-content" href="#">
+                <h1> Payment Plan </h1>
+                 </a>                   
+                </div>
+
+            </section> 
 
             
         </section>
         <section className={styles.img}>
-            <div className="img-right">
-            
-            <figure>
-                <img src="/planning/assets/APTOPIX_Israel_Palestinians_21141308899687.webp" alt="war of 2 countries"/>
-            </figure>
-           <figure>
-            <img src="/planning/assets/_118492869_happeningsinpalestine2021bidennethanyautokonpalestine-israelcrisisupdates.jpg" alt="war of 2 countries"/>
-            
-           </figure>
-           <figure>
-            <img src="/planning/assets/P6IUZDCOXNKWZA4VN5UKBQSLWI.jpg" alt="President Putin"/>
-           </figure>
-           <figure>
-            <img src="/planning/assets/russian-soldier.avif" alt="Russia soldier"/>
-           </figure>
+            <div className="slide-container"> 
+
+
       </div>
 
         </section>

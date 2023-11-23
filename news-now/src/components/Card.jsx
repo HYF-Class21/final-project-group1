@@ -8,7 +8,7 @@ const Card = ({ article, index }) => {
       <div className={styles.img}>
         <img
           style={{ width: "100%", height: "100%" }}
-          src={article.urlToImage}
+          src={article.image}
           alt={article.title}
         />
       </div>

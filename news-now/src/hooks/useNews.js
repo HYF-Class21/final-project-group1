@@ -8,7 +8,7 @@ function useNews(filters) {
     const countryToURL = `country=${filters.country}&`;
     const categoryToURL = `category=${filters.category}&`;
 
-    let URL = `https://newsapi.org/v2/top-headlines?${countryToURL}${categoryToURL}apiKey=004bee58487d4810bc3da626634d2b85`;
+    let URL = `https://gnews.io/api/v4/top-headlines?category=${categoryToURL}&lang=en&country=${countryToURL}&max=10&apikey=9a90b00262aa5175a4a080db4a8b0ce1'`;
     console.log(URL);
     fetch(URL)
       .then((apiRes) => apiRes.json())

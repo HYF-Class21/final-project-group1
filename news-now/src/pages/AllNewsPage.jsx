@@ -7,10 +7,12 @@ import { useNews } from "../hooks";
 import { articles } from "../data";
 
 import Card from "../components/Card";
+import RadioButton from "../components/RadioButton";
+
 
 const AllNewsPage = () => {
   const { isLoggedIn, setIsLoggedIn, isPayed, setIsPayed } = useGlobalState();
-  const [filters, setFilters] = useState({ country: "tw", category: "sports" });
+  const [filters, setFilters] = useState({ country: "us", category: "sports" });
 
   let data = [];
 
@@ -39,35 +41,9 @@ const AllNewsPage = () => {
       </div>
       <div>
         <div>
-          <label>
-            <input
-              type="radio"
-              value="ua"
-              checked={filters.country === "ua"}
-              onChange={handleCountryChange}
-            />
-            Ukraine
-          </label>
-
-          <label>
-            <input
-              type="radio"
-              value="pt"
-              checked={filters.country === "pt"}
-              onChange={handleCountryChange}
-            />
-            Portugal
-          </label>
-
-          <label>
-            <input
-              type="radio"
-              value="tw"
-              checked={filters.country === "tw"}
-              onChange={handleCountryChange}
-            />
-            Taiwan
-          </label>
+          <RadioButton value='us' name='United States' handleRadioChange={handleCountryChange} filters={filters} btype ='country' />
+          <RadioButton value='ie' name='Ireland' handleRadioChange={handleCountryChange} filters={filters} btype ='country'/>
+          <RadioButton value='pl' name='Poland' handleRadioChange={handleCountryChange} filters={filters} btype ='country'/>
 
           <p>Selected Option: {filters.country}</p>
         </div>
@@ -75,35 +51,14 @@ const AllNewsPage = () => {
 
       <div>
         <div>
-          <label>
-            <input
-              type="radio"
-              value="health"
-              checked={filters.category === "health"}
-              onChange={handleCategoryChange}
-            />
-            health
-          </label>
-
-          <label>
-            <input
-              type="radio"
-              value="sports"
-              checked={filters.category === "sports"}
-              onChange={handleCategoryChange}
-            />
-            sports
-          </label>
-
-          <label>
-            <input
-              type="radio"
-              value="technology"
-              checked={filters.category === "technology"}
-              onChange={handleCategoryChange}
-            />
-            technology
-          </label>
+          <RadioButton value="health" handleRadioChange={handleCategoryChange} filters={filters} btype ='category'/>
+          <RadioButton value="entertainment" handleRadioChange={handleCategoryChange} filters={filters} btype ='category'/>
+          <RadioButton value="general" handleRadioChange={handleCategoryChange} filters={filters} btype ='category'/>
+          <RadioButton value="science" handleRadioChange={handleCategoryChange} filters={filters} btype ='category'/>
+          <RadioButton value="sports" handleRadioChange={handleCategoryChange} filters={filters} btype ='category'/>
+          <RadioButton value="buisness" handleRadioChange={handleCategoryChange} filters={filters} btype ='category'/>
+          <RadioButton value="technology" handleRadioChange={handleCategoryChange} filters={filters} btype ='category'/>
+      
 
           <p>Selected Option: {filters.category}</p>
         </div>

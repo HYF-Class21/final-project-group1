@@ -40,7 +40,8 @@ const LoginForm = ({
       };
       login();
     } else {
-      setError("Email or password is not valid");
+      setError(`Email example: user@example.com.\n
+                Password example: Test1234!`);
     }
   };
 
@@ -56,7 +57,7 @@ const LoginForm = ({
     <div className={styles.loginComponent}>
       <p className={styles.error}>{error}</p>
       <div className={styles.formContainer}>
-        <div className={[styles.iconDiv, styles.marginTop].join(' ')}>
+        <div className={[styles.iconDiv, styles.marginTop].join(" ")}>
           <FontAwesomeIcon
             onClick={() => {
               setEmail("");
@@ -91,7 +92,7 @@ const LoginForm = ({
           </button>
         </form>
         <p className={styles.formContainerP}>Do not have an account?</p>
-        <p className={[styles.formContainerP, styles.marginBottom].join(' ')}>
+        <p className={[styles.formContainerP, styles.marginBottom].join(" ")}>
           Please,{" "}
           <span
             onClick={() => {

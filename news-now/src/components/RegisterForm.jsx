@@ -41,7 +41,8 @@ const RegisterForm = ({
       };
       register();
     } else {
-      setError("Email or password is not valid");
+      setError(`Email example: user@example.com.\n
+      Password example: Test1234!`);
     }
   };
 

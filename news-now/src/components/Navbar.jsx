@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./Navbar.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImCross } from "react-icons/im";
 import { useGlobalState } from "../context/GlobalStateContext";

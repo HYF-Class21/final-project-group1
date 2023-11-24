@@ -1,12 +1,12 @@
-div {
-  padding: 2px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
 
 .card {
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  font-family: 'Inter', sans-serif;
+  border-radius: 10px;
 }
+
 .art0 { grid-area: art0; }
 .art1 { grid-area: art1; }
 .art2 { grid-area: art2; }
@@ -15,15 +15,62 @@ div {
 .art5 { grid-area: art5; }
 .art6 { grid-area: art6; }
 .art7 { grid-area: art7; }
+.art8 { grid-area: art8; }
+.art9 { grid-area: art9; }
 
-.border {
-  border: 1px solid black;
+.imgDiv img {
+  border-radius: 10px 10px 0 0;
 }
 
-.bold {
-  font-weight: bold;
+.dateDiv {
+  display: flex;
+  justify-content: space-between;
+  margin: 7px 20px;
 }
 
-.gray {
+.date {
   color: gray;
+  margin-left: 10px;
+}
+
+.categoryDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.category {
+  padding: 2px 5px;
+  border-radius: 10px;
+  margin: 0 5px;
+}
+
+.title {
+  color: black;
+  font-size: 24px;
+  margin: 10px 20px;
+  font-weight: 600;
+}
+
+.description {
+  color: #9A9A9A;
+  font-size: 18px;
+  margin: 10px 20px;
+}
+
+.buttonDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  display: block;
+  width: 200px;
+  padding: 10px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  margin: 15px 20px 30px 20px;
 }

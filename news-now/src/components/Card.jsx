@@ -6,11 +6,11 @@ const Card = ({ article }) => {
   return (
     <div className={styles.card}>
       <div className={styles.img}>
-        <img
+        <a href={`/article/${article.id}`}><img
           style={{ width: "100%", height: "100%" }}
-          src={article.urlToImage}
+          src={article.image}
           alt={article.title}
-        />
+        /></a>
       </div>
       <div className={styles.border}></div>
       <div className={styles.border}>

@@ -1,11 +1,12 @@
 import styles from "./ArticlePage.module.css";
 import Navbar from '../components/Navbar';
 
-const ArticlePage = () => {
+const ArticlePage = ({article}) => {
   return (
     <div>
       <Navbar />
-      ArticlePage
+      <h1>{article.title}</h1>
+      article content is : {article.content}
     </div>
   );
 };

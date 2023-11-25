@@ -6,8 +6,6 @@ const GlobalStateContext = createContext();
 const GlobalStateProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get("isLoggedIn") === "true");
   const [isPayed, setIsPayed] = useState(false);
-  const [globArticles, setGlobArticles] = useState([]);
-  const [filters, setFilters] = useState({ country: "us", category: "sports" });
 
 
   const contextValue = {
@@ -15,10 +13,6 @@ const GlobalStateProvider = ({ children }) => {
     setIsLoggedIn,
     isPayed,
     setIsPayed,
-    globArticles,
-    setGlobArticles,
-    filters,
-    setFilters
   };
 
   return (

@@ -11,38 +11,32 @@ import RadioButton from "../components/RadioButton";
 
 const AllNewsPage = () => {
   const { isLoggedIn, setIsLoggedIn, isPayed, setIsPayed } = useGlobalState();
-  const { globArticles, setGlobArticles, filters, setFilters } = useGlobalState();
+  const [filters, setFilters] = useState({ country: "us", category: "sports" });
 
 
 
-  const updateArticles = () => {
-    let data = [];
+  let data = [];
 
-    // for (let article of useNews(filters)) { // api call
-    for (let article of articles) {
-      if (
-        article.category === filters.category &&
-        article.country === filters.country
-      ) {
-        data.push(article);
-      }
+  // for (let article of useNews(filters)) { // api call
+  for (let article of articles) {
+    if (
+      article.category === filters.category &&
+      article.country === filters.country
+    ) {
+      data.push(article);
     }
-
-    setGlobArticles(data)
-  }  
-
-  updateArticles();
+  }
 
 
   
 
   const handleCountryChange = (event) => {
     setFilters((filters) => ({ ...filters, country: event.target.value }));
-    updateArticles();
+  
   };
   const handleCategoryChange = (event) => {
     setFilters((filters) => ({ ...filters, category: event.target.value }));
-    updateArticles();
+
   };
 
   return (
@@ -129,7 +123,7 @@ const AllNewsPage = () => {
           flexWrap: "wrap",
         }}
       >
-        {globArticles.map((article) => (
+        {data.map((article) => (
           <Card key={article.title} article={article} />
         ))}
       </div>

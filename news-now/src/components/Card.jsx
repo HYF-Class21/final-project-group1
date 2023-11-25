@@ -6,11 +6,18 @@ const Card = ({ article }) => {
   return (
     <div className={styles.card}>
       <div className={styles.img}>
-        <a href={`/article/${article.id}`}><img
-          style={{ width: "100%", height: "100%" }}
-          src={article.image}
-          alt={article.title}
-        /></a>
+        <Link
+          to={`/article/${article.id}`}
+          key={article.id}
+          props={article}
+         
+        >
+          <img
+            style={{ width: "100%", height: "100%" }}
+            src={article.image}
+            alt={article.title}
+          />
+        </Link>
       </div>
       <div className={styles.border}></div>
       <div className={styles.border}>

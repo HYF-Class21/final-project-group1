@@ -39,32 +39,34 @@ const Card = ({ article, index }) => {
           alt={article.title}
         />
       </div>
-      <div className={styles.dateDiv}>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <FontAwesomeIcon icon={faCalendarDays} style={{ color: "gray" }} />
-          <div className={styles.date}>{formatDate(article.publishedAt)}</div>
-        </div>
-        <div className={styles.categoryDiv}>
-          <div
-            className={styles.category}
-            style={{ backgroundColor: categoryColor }}
-          >
-            {article.category}
+      <div className={styles.contentDiv}>
+        <div className={styles.dateDiv}>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <FontAwesomeIcon icon={faCalendarDays} style={{ color: "gray" }} />
+            <div className={styles.date}>{formatDate(article.publishedAt)}</div>
           </div>
-          <div
-            className={styles.category}
-            style={{ backgroundColor: countryColor }}
-          >
-            {article.country}
+          <div className={styles.categoryDiv}>
+            <div
+              className={styles.category}
+              style={{ backgroundColor: categoryColor }}
+            >
+              {article.category}
+            </div>
+            <div
+              className={styles.category}
+              style={{ backgroundColor: countryColor }}
+            >
+              {article.country}
+            </div>
           </div>
         </div>
-      </div>
-      <div className={styles.title}>{article.title}</div>
-      <div className={styles.description}>{article.description}..</div>
-      <div className={styles.buttonDiv}>
-        <button className={styles.button}>
-          Read More <FontAwesomeIcon icon={faArrowRight} />
-        </button>
+        <div className={styles.title}>{article.title}</div>
+        <div className={styles.description}>{article.description}..</div>
+        <div className={styles.buttonDiv}>
+          <button className={styles.button}>
+            Read More <FontAwesomeIcon icon={faArrowRight} />
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -19,29 +19,38 @@ const LoginForm = ({
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const emailIsValid = validateEmail(email);
     const passwordIsValid = validatePassword(password);
+    console.log(emailIsValid, passwordIsValid)
 
     if (emailIsValid && passwordIsValid) {
-      const login = () => {
-        try {
-          Cookies.set("email", email);
-          Cookies.set("isLoggedIn", true);
+      try {
+        const existingEmail = Cookies.get("email");
+
+        if (existingEmail === email) {
+          await Cookies.set("isLoggedIn", true);
+          setIsLoggedIn(true);
+        } else {
+          await Cookies.set("email", email);
+          await Cookies.set("isLoggedIn", true);
+          await Cookies.set("isPayed", false);
+          await Cookies.set("counter", String(5), { expires: 7 });
+
           setEmail("");
           setPassword("");
           setIsLoggedIn(true);
-          setActiveLogin(false);
-          window.location.reload();
-        } catch {
-          setError("Error while log in");
         }
-      };
-      login();
+
+        setError("");
+        setActiveLogin(false);
+        window.location.reload();
+      } catch {
+        setError("Error while log in");
+      }
     } else {
-      setError(`Email example: user@example.com.\n
-                Password example: Test1234!`);
+      setError(`Email or password are not valid`);
     }
   };
 

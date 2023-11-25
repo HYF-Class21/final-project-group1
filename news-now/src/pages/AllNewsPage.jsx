@@ -9,9 +9,15 @@ import { articles } from "../data";
 import Card from "../components/Card";
 import RadioButton from "../components/RadioButton";
 
-
 const AllNewsPage = () => {
-  const { isLoggedIn, setIsLoggedIn, isPayed, setIsPayed } = useGlobalState();
+  const {
+    isLoggedIn,
+    setIsLoggedIn,
+    isPayed,
+    setIsPayed,
+    counter,
+    setCounter,
+  } = useGlobalState();
   const [filters, setFilters] = useState({ country: "us", category: "sports" });
 
   let data = [];
@@ -33,17 +39,43 @@ const AllNewsPage = () => {
     setFilters((filters) => ({ ...filters, category: event.target.value }));
   };
 
+  const handleCounter = () => {
+    setCounter(counter - 1);
+  };
+
   return (
     <>
       <div>
         <Navbar />
-        AllNewsPage
       </div>
       <div>
+        {isLoggedIn && !isPayed ? (
+          <div className={styles.counter}>{counter} free articles</div>
+        ) : (
+          ""
+        )}
         <div>
-          <RadioButton value='us' name='United States' handleRadioChange={handleCountryChange} filters={filters} btype ='country' />
-          <RadioButton value='ie' name='Ireland' handleRadioChange={handleCountryChange} filters={filters} btype ='country'/>
-          <RadioButton value='pl' name='Poland' handleRadioChange={handleCountryChange} filters={filters} btype ='country'/>
+          <RadioButton
+            value="us"
+            name="United States"
+            handleRadioChange={handleCountryChange}
+            filters={filters}
+            btype="country"
+          />
+          <RadioButton
+            value="ie"
+            name="Ireland"
+            handleRadioChange={handleCountryChange}
+            filters={filters}
+            btype="country"
+          />
+          <RadioButton
+            value="pl"
+            name="Poland"
+            handleRadioChange={handleCountryChange}
+            filters={filters}
+            btype="country"
+          />
 
           <p>Selected Option: {filters.country}</p>
         </div>
@@ -51,20 +83,52 @@ const AllNewsPage = () => {
 
       <div>
         <div>
-          <RadioButton value="health" handleRadioChange={handleCategoryChange} filters={filters} btype ='category'/>
-          <RadioButton value="entertainment" handleRadioChange={handleCategoryChange} filters={filters} btype ='category'/>
-          <RadioButton value="general" handleRadioChange={handleCategoryChange} filters={filters} btype ='category'/>
-          <RadioButton value="science" handleRadioChange={handleCategoryChange} filters={filters} btype ='category'/>
-          <RadioButton value="sports" handleRadioChange={handleCategoryChange} filters={filters} btype ='category'/>
-          <RadioButton value="buisness" handleRadioChange={handleCategoryChange} filters={filters} btype ='category'/>
-          <RadioButton value="technology" handleRadioChange={handleCategoryChange} filters={filters} btype ='category'/>
-      
+          <RadioButton
+            value="health"
+            handleRadioChange={handleCategoryChange}
+            filters={filters}
+            btype="category"
+          />
+          <RadioButton
+            value="entertainment"
+            handleRadioChange={handleCategoryChange}
+            filters={filters}
+            btype="category"
+          />
+          <RadioButton
+            value="general"
+            handleRadioChange={handleCategoryChange}
+            filters={filters}
+            btype="category"
+          />
+          <RadioButton
+            value="science"
+            handleRadioChange={handleCategoryChange}
+            filters={filters}
+            btype="category"
+          />
+          <RadioButton
+            value="sports"
+            handleRadioChange={handleCategoryChange}
+            filters={filters}
+            btype="category"
+          />
+          <RadioButton
+            value="buisness"
+            handleRadioChange={handleCategoryChange}
+            filters={filters}
+            btype="category"
+          />
+          <RadioButton
+            value="technology"
+            handleRadioChange={handleCategoryChange}
+            filters={filters}
+            btype="category"
+          />
 
           <p>Selected Option: {filters.category}</p>
         </div>
       </div>
-
-
 
       <div
         style={{
@@ -74,7 +138,7 @@ const AllNewsPage = () => {
         }}
       >
         {data.map((article) => (
-          <Card key={article.title} article={article} />
+          <Card key={article.title} article={article} onClick={handleCounter} />
         ))}
       </div>
     </>

@@ -1,17 +1,32 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from "react";
 import Cookies from "js-cookie";
 
 const GlobalStateContext = createContext();
 
 const GlobalStateProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get("isLoggedIn") === "true");
-  const [isPayed, setIsPayed] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    Cookies.get("isLoggedIn") === "true" || false
+  );
+  const [isPayed, setIsPayed] = useState(
+    Cookies.get("isPayed") === "true" || false
+  );
+  const [counter, setCounter] = useState(
+    parseInt(Cookies.get("counter"), 10) || 5
+  );
+
+  useEffect(() => {
+    Cookies.set("isLoggedIn", isLoggedIn.toString(), { expires: 7 });
+    Cookies.set("isPayed", isPayed.toString(), { expires: 7 });
+    // Cookies.set("counter", counter.toString(), { expires: 7 });
+  }, [isLoggedIn, isPayed, counter]);
 
   const contextValue = {
     isLoggedIn,
     setIsLoggedIn,
     isPayed,
-    setIsPayed
+    setIsPayed,
+    counter,
+    setCounter,
   };
 
   return (
@@ -24,7 +39,7 @@ const GlobalStateProvider = ({ children }) => {
 const useGlobalState = () => {
   const context = useContext(GlobalStateContext);
   if (!context) {
-    throw new Error('useGlobalState must be used within a GlobalStateProvider');
+    throw new Error("useGlobalState must be used within a GlobalStateProvider");
   }
   return context;
 };

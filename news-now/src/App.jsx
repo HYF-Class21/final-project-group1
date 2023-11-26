@@ -9,16 +9,12 @@ import PaymentsPage from "./pages/PaymentsPage";
 import LogoutPage from "./pages/LogoutPage";
 
 const App = () => {
-
   return (
     <GlobalStateProvider>
       <Router>
         <Routes>
           <Route path="/" element={<AllNewsPage />} />
-          {/* <Route path="/article/:id" element={<ArticlePage />} /> */}
           <Route path="/article/:id" element={<ArticlePage />} />
-
-
           <Route path="/payments" element={<PaymentsPage />} />
           <Route path="/logout" element={<LogoutPage />} />
         </Routes>

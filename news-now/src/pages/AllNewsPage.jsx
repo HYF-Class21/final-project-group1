@@ -16,13 +16,10 @@ const AllNewsPage = () => {
     setIsLoggedIn,
     isPayed,
     setIsPayed,
-<<<<<<< HEAD
     counter,
     setCounter,
-=======
     globData,
     setGlobData,
->>>>>>> b1f3607edb77ac15fb6a82129677e2b2b270ad6b
   } = useGlobalState();
   const [filters, setFilters] = useState({ country: "us", category: "sports" });
 
@@ -69,31 +66,6 @@ const AllNewsPage = () => {
           ""
         )}
         <div>
-<<<<<<< HEAD
-          <RadioButton
-            value="us"
-            name="United States"
-            handleRadioChange={handleCountryChange}
-            filters={filters}
-            btype="country"
-          />
-          <RadioButton
-            value="ie"
-            name="Ireland"
-            handleRadioChange={handleCountryChange}
-            filters={filters}
-            btype="country"
-          />
-          <RadioButton
-            value="pl"
-            name="Poland"
-            handleRadioChange={handleCountryChange}
-            filters={filters}
-            btype="country"
-          />
-=======
->>>>>>> b1f3607edb77ac15fb6a82129677e2b2b270ad6b
-
           <RadioButton
             value="us"
             name="United States"
@@ -152,24 +124,11 @@ const AllNewsPage = () => {
             btype="category"
           />
           <RadioButton
-<<<<<<< HEAD
-            value="buisness"
-            handleRadioChange={handleCategoryChange}
-            filters={filters}
-            btype="category"
-          />
-          <RadioButton
-=======
->>>>>>> b1f3607edb77ac15fb6a82129677e2b2b270ad6b
             value="technology"
             handleRadioChange={handleCategoryChange}
             filters={filters}
             btype="category"
           />
-<<<<<<< HEAD
-
-=======
->>>>>>> b1f3607edb77ac15fb6a82129677e2b2b270ad6b
           <p>Selected Option: {filters.category}</p>
         </div>
       </div>
@@ -181,13 +140,8 @@ const AllNewsPage = () => {
           flexWrap: "wrap",
         }}
       >
-<<<<<<< HEAD
-        {data.map((article) => (
-          <Card key={article.title} article={article} onClick={handleCounter} />
-=======
         {globData.map((article) => (
-          <Card key={article.title} article={article} />
->>>>>>> b1f3607edb77ac15fb6a82129677e2b2b270ad6b
+          <Card key={article.title} article={article} onClick={handleCounter} />
         ))}
       </div>
     </>

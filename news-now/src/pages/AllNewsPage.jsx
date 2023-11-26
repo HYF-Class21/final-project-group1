@@ -10,37 +10,42 @@ import Card from "../components/Card";
 import RadioButton from "../components/RadioButton";
 
 const AllNewsPage = () => {
-  const { isLoggedIn, setIsLoggedIn, isPayed, setIsPayed, globData, setGlobData } = useGlobalState();
+  const {
+    isLoggedIn,
+    setIsLoggedIn,
+    isPayed,
+    setIsPayed,
+    globData,
+    setGlobData,
+  } = useGlobalState();
   const [filters, setFilters] = useState({ country: "us", category: "sports" });
-  
 
-
-  const getGlobData = ()=> { 
+  const getGlobData = () => {
     let data = [];
 
     // for (let article of useNews(filters)) { // api call
-        for (let article of articles) {
-          if (
-            article.category === filters.category &&
-            article.country === filters.country
-          ) {
-            data.push(article);
-          }
-        }
-        setGlobData(data);
-      };
-    
-      useEffect(() => {
-        getGlobData();
-      }, [filters]);
-    
-      const handleCountryChange = (event) => {
-        setFilters((filters) => ({ ...filters, country: event.target.value }));
-      };
-    
-      const handleCategoryChange = (event) => {
-        setFilters((filters) => ({ ...filters, category: event.target.value }));
-      };
+    for (let article of articles) {
+      if (
+        article.category === filters.category &&
+        article.country === filters.country
+      ) {
+        data.push(article);
+      }
+    }
+    setGlobData(data);
+  };
+
+  useEffect(() => {
+    getGlobData();
+  }, [filters]);
+
+  const handleCountryChange = (event) => {
+    setFilters((filters) => ({ ...filters, country: event.target.value }));
+  };
+
+  const handleCategoryChange = (event) => {
+    setFilters((filters) => ({ ...filters, category: event.target.value }));
+  };
 
   return (
     <>

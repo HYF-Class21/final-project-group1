@@ -1,8 +1,8 @@
 import styles from "./ArticlePage.module.css";
 import Navbar from "../components/Navbar";
 import React from "react";
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import { useGlobalState } from "../context/GlobalStateContext";
 
@@ -22,14 +22,12 @@ const ArticlePage = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const userComment = formData.get('comment');
-   
-    setComments([...comments, userComment]);
-    console.log(comments, typeof comments)
-    event.target.reset();
-  }
+    const userComment = formData.get("comment");
 
-   
+    setComments([...comments, userComment]);
+    console.log(comments, typeof comments);
+    event.target.reset();
+  };
 
   return (
     <div>
@@ -37,24 +35,20 @@ const ArticlePage = () => {
       <Navbar />
       <h1>{currentArticle.title}</h1>
       <img
-            style={{ width: "50%", height: "50%" }}
-            src={currentArticle.image}
-            alt={currentArticle.title}
-          />
+        style={{ width: "50%", height: "50%" }}
+        src={currentArticle.image}
+        alt={currentArticle.title}
+      />
       <p> article content is : {currentArticle.content} </p>
       <br />
 
-      {comments.map( (comment)=> (
+      {comments.map((comment) => (
         <>
-        <p>
-          {comment}
-        </p>
-        <br/>
+          <p>{comment}</p>
+          <br />
         </>
-      )
+      ))}
 
-        )}
-      
       {/* the form */}
       <form onSubmit={handleFormSubmit}>
         <p>

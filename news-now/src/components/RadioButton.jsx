@@ -15,9 +15,5 @@ const RadioButton = ({ value, name = value, handleRadioChange, filters, btype })
     </label>
   );
 };
+export default RadioButton;
 
-<<<<<<< HEAD
-export default RadioButton;
-=======
-export default RadioButton;
->>>>>>> main

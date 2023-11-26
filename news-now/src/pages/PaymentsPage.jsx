@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
-import PaymentForm from '../components/PaymentForm';
 import styles from "./PaymentsPage.module.css";
 
 const paymentPlansData = [

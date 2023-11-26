@@ -10,13 +10,14 @@ import { articles } from "../data";
 import Card from "../components/Card";
 import RadioButton from "../components/RadioButton";
 
-
 const AllNewsPage = () => {
   const {
     isLoggedIn,
     setIsLoggedIn,
     isPayed,
     setIsPayed,
+    counter,
+    setCounter,
     globData,
     setGlobData,
   } = useGlobalState();
@@ -49,15 +50,22 @@ const AllNewsPage = () => {
     setFilters((filters) => ({ ...filters, category: event.target.value }));
   };
 
+  const handleCounter = () => {
+    setCounter(counter - 1);
+  };
+
   return (
     <>
       <div>
         <Navbar />
-        AllNewsPage
       </div>
       <div>
+        {isLoggedIn && !isPayed ? (
+          <div className={styles.counter}>{counter} free articles</div>
+        ) : (
+          ""
+        )}
         <div>
-
           <RadioButton
             value="us"
             name="United States"
@@ -133,7 +141,7 @@ const AllNewsPage = () => {
         }}
       >
         {globData.map((article) => (
-          <Card key={article.title} article={article} />
+          <Card key={article.title} article={article} onClick={handleCounter} />
         ))}
       </div>
     </>

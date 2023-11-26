@@ -7,8 +7,8 @@ const LogoutPage = () => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    Cookies.remove('email');
     Cookies.set('isLoggedIn', false);
+    Cookies.remove("count");
     navigate("/");
     window.location.reload();
   };

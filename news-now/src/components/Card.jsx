@@ -16,6 +16,7 @@ const Card = ({ article }) => {
             alt={article.title}
           />
         </Link>
+
       </div>
       <div className={styles.border}></div>
       <div className={styles.border}>

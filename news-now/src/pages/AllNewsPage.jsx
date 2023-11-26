@@ -1,6 +1,7 @@
 import styles from "./AllNewsPage.module.css";
 import { useGlobalState } from "../context/GlobalStateContext";
 import { useState, useEffect } from "react";
+
 import Navbar from "../components/Navbar";
 
 import { useNews } from "../hooks";
@@ -8,6 +9,7 @@ import { articles } from "../data";
 
 import Card from "../components/Card";
 import RadioButton from "../components/RadioButton";
+
 
 const AllNewsPage = () => {
   const {
@@ -55,6 +57,7 @@ const AllNewsPage = () => {
       </div>
       <div>
         <div>
+
           <RadioButton
             value="us"
             name="United States"
@@ -76,7 +79,6 @@ const AllNewsPage = () => {
             filters={filters}
             btype="country"
           />
-
           <p>Selected Option: {filters.country}</p>
         </div>
       </div>
@@ -119,7 +121,6 @@ const AllNewsPage = () => {
             filters={filters}
             btype="category"
           />
-
           <p>Selected Option: {filters.category}</p>
         </div>
       </div>

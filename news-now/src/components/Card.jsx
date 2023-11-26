@@ -7,11 +7,17 @@ const Card = ({ article, onClick }) => {
   return (
     <div className={styles.card} onClick={onClick}>
       <div className={styles.img}>
-        <img
-          style={{ width: "100%", height: "100%" }}
-          src={article.image}
-          alt={article.title}
-        />
+        <Link
+          to={`/article/${article.id}`}
+          key={article.id} 
+        >
+          <img
+            style={{ width: "100%", height: "100%" }}
+            src={article.image}
+            alt={article.title}
+          />
+        </Link>
+
       </div>
       <div className={styles.border}></div>
       <div className={styles.border}>

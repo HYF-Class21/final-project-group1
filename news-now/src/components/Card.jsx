@@ -8,9 +8,7 @@ const Card = ({ article }) => {
       <div className={styles.img}>
         <Link
           to={`/article/${article.id}`}
-          key={article.id}
-          props={article}
-         
+          key={article.id} 
         >
           <img
             style={{ width: "100%", height: "100%" }}

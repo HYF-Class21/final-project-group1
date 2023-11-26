@@ -1,6 +1,6 @@
 import styles from "./AllNewsPage.module.css";
 import { useGlobalState } from "../context/GlobalStateContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 
 import { useNews } from "../hooks";
@@ -10,34 +10,37 @@ import Card from "../components/Card";
 import RadioButton from "../components/RadioButton";
 
 const AllNewsPage = () => {
-  const { isLoggedIn, setIsLoggedIn, isPayed, setIsPayed } = useGlobalState();
+  const { isLoggedIn, setIsLoggedIn, isPayed, setIsPayed, globData, setGlobData } = useGlobalState();
   const [filters, setFilters] = useState({ country: "us", category: "sports" });
-
-
-
-  let data = [];
-
-  // for (let article of useNews(filters)) { // api call
-  for (let article of articles) {
-    if (
-      article.category === filters.category &&
-      article.country === filters.country
-    ) {
-      data.push(article);
-    }
-  }
-
-
   
 
-  const handleCountryChange = (event) => {
-    setFilters((filters) => ({ ...filters, country: event.target.value }));
-  
-  };
-  const handleCategoryChange = (event) => {
-    setFilters((filters) => ({ ...filters, category: event.target.value }));
 
-  };
+  const getGlobData = ()=> { 
+    let data = [];
+
+    // for (let article of useNews(filters)) { // api call
+        for (let article of articles) {
+          if (
+            article.category === filters.category &&
+            article.country === filters.country
+          ) {
+            data.push(article);
+          }
+        }
+        setGlobData(data);
+      };
+    
+      useEffect(() => {
+        getGlobData();
+      }, [filters]);
+    
+      const handleCountryChange = (event) => {
+        setFilters((filters) => ({ ...filters, country: event.target.value }));
+      };
+    
+      const handleCategoryChange = (event) => {
+        setFilters((filters) => ({ ...filters, category: event.target.value }));
+      };
 
   return (
     <>
@@ -123,7 +126,7 @@ const AllNewsPage = () => {
           flexWrap: "wrap",
         }}
       >
-        {data.map((article) => (
+        {globData.map((article) => (
           <Card key={article.title} article={article} />
         ))}
       </div>

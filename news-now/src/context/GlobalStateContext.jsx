@@ -17,7 +17,7 @@ const GlobalStateProvider = ({ children }) => {
   useEffect(() => {
     Cookies.set("isLoggedIn", isLoggedIn.toString(), { expires: 7 });
     Cookies.set("isPayed", isPayed.toString(), { expires: 7 });
-    // Cookies.set("counter", counter.toString(), { expires: 7 });
+    Cookies.set("counter", counter.toString(), { expires: 7 });
   }, [isLoggedIn, isPayed, counter]);
 
   const contextValue = {

@@ -17,6 +17,9 @@
     border-color: #4e4949;
     border-radius: 20px;  
 }
+.btnSignup{
+    outline-color: #000;
+}
 
 .footer h3 {
     text-align: left;

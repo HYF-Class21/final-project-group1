@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Footer.module.css";
 
 
@@ -10,7 +9,7 @@ const Footer = () => {
 
             <form>
                 <input type="email"></input>
-                <button type="button" outline color="#000">
+                <button type="button" className="btnSignup">
                     Sign up!
                 </button>
             </form>

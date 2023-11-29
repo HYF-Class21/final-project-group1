@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import styles from "./PaymentsPage.module.css";
+import PaymentForm from '../components/PaymentForm';
 
 const paymentPlansData = [
   { id: 1, name: '1 month', price: 20.00 },
@@ -9,7 +10,7 @@ const paymentPlansData = [
 ];
 
 const PaymentsPage = () => {
-  const [selectedPlan, setSelectedPlan] = useState(null);
+  const [selectedPlan, setSlectedPlan] = useState(null);
 
   const handleSelectPlan = (plan) => {
     setSelectedPlan(plan);
@@ -32,6 +33,9 @@ const PaymentsPage = () => {
               </div>
             </div>
           ))}
+          <div>
+            <PaymentForm />
+          </div>
         </div>
         {selectedPlan && (
           <div className={styles.selected}>
@@ -40,6 +44,7 @@ const PaymentsPage = () => {
             <p>${selectedPlan.price.toFixed(2)}</p>
           </div>
         )}
+
       </div>
     </>
   );

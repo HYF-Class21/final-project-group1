@@ -57,8 +57,8 @@ const Navbar = () => {
       </div>
       <div className={styles.logo}></div>
       <ul className={styles.ul}>
-        <li className={styles.li}>
-          <Link className={`${styles.a} ${location.pathname === "/" ? styles.activeLink : ""}`} to="/">
+        <li className={`${styles.li} ${location.pathname === "/" ? styles.activeLink : ""}`}>
+          <Link className={styles.a} to="/">
             Home
           </Link>
           <FontAwesomeIcon

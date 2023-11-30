@@ -12,78 +12,78 @@
 
 .art0 { grid-area: art0; }
 .art0 .imgDiv {
-  height: 40%;
+  height: 45%;
 }
 .art0 .contentDiv {
-  height: 60%;
+  height: 55%;
 }
 
 .art1 { 
   grid-area: art1; 
 }
 .art1 .imgDiv {
-  height: 300px;
+  height: 340px;
 }
 
 .art2 { grid-area: art2; }
 .art2 .imgDiv {
-  height: 35%;
+  height: 45%;
 }
 .art2 .contentDiv {
-  height: 65%;
+  height: 55%;
 }
 
 .art3 { grid-area: art3; }
 .art3 .imgDiv {
-  height: 300px;
+  height: 340px;
 }
 
 .art4 { grid-area: art4; }
 .art4 .imgDiv {
-  height: 33%;
+  height: 40%;
 }
 .art4 .contentDiv {
-  height: 67%;
+  height: 60%;
 }
 
 .art5 { grid-area: art5; }
 .art5 .imgDiv {
-  height: 35%;
+  height: 40%;
 }
 .art5 .contentDiv {
-  height: 65%;
+  height: 60%;
 }
 
 .art6 { grid-area: art6; }
 .art6 .imgDiv {
-  height: 32%;
+  height: 40%;
 }
 .art6 .contentDiv {
-  height: 68%;
+  height: 60%;
 }
 
 .art7 { grid-area: art7; }
 .art7 .imgDiv {
-  height: 36%;
+  height: 40%;
 }
 .art7 .contentDiv {
-  height: 64%;
+  height: 60%;
 }
 
 .art8 { grid-area: art8; }
 .art8 .imgDiv {
-  height: 32%;
+  height: 40%;
 }
 .art8 .contentDiv {
-  height: 68%;
+  height: 60%;
 }
 
 .art9 { grid-area: art9; }
 .art9 .imgDiv {
-  height: 31%;
+  height: 40%;
 }
 .art9 .contentDiv {
-  height: 69%;
+  height: 60%;
 }
 
 .imgDiv img {
@@ -149,4 +149,8 @@
   border-radius: 5px;
   font-size: 20px;
   margin: 15px 20px 30px 20px;
+}
+
+.link {
+  text-decoration: none;
 }

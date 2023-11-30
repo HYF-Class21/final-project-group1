@@ -8,7 +8,7 @@ import {
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Card = ({ article, index }) => {
+const Card = ({ article, onClick, index }) => {
   const categoryColors = [
     ["us", "yellow"],
     ["ie", "#e74c3c"],
@@ -31,12 +31,12 @@ const Card = ({ article, index }) => {
   const countryColor = getCategoryColor(article.country);
 
   return (
-    <div className={`${styles.card} ${styles["art" + index]}`}>
+    <div
+      className={`${styles.card} ${styles["art" + index]}`}
+      onClick={onClick}
+    >
       <div className={styles.imgDiv}>
-        <img
-          src={article.image}
-          alt={article.title}
-        />
+        <img src={article.image} alt={article.title} />
       </div>
       <div className={styles.contentDiv}>
         <div className={styles.dateDiv}>
@@ -59,12 +59,33 @@ const Card = ({ article, index }) => {
             </div>
           </div>
         </div>
-        <div className={styles.title}>{article.title}</div>
-        <div className={styles.description}>{article.description}..</div>
+        <div className={styles.title}>
+          {article.title.length > 75
+            ? `${article.title.substring(
+                0,
+                article.title.lastIndexOf(" ", 75)
+              )}...`
+            : article.title}
+        </div>
+        <div className={styles.description}>
+          {article.description.length > 100
+            ? `${article.description.substring(
+                0,
+                article.description.lastIndexOf(" ", 100)
+              )}...`
+            : article.description}
+        </div>
+
         <div className={styles.buttonDiv}>
-          <button className={styles.button}>
-            Read More <FontAwesomeIcon icon={faArrowRight} />
-          </button>
+          <Link
+            to={`/article/${article.id}`}
+            key={article.id}
+            className={styles.link}
+          >
+            <button className={styles.button}>
+              Read More <FontAwesomeIcon icon={faArrowRight} />
+            </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@
   width: 92%;
   display: grid;
   grid-template-columns: 400px 375px 375px 400px;
-  grid-template-rows: 600px 600px 670px;
+  grid-template-rows: 600px 600px 600px;
   gap: 40px;
   grid-template-areas:
   "art0   art1    art1    art2  "
@@ -23,3 +23,6 @@
   "art6   art7    art9    art8  ";
 }
 
+.counter {
+  color: red;
+}

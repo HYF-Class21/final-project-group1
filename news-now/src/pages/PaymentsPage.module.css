@@ -1,0 +1,42 @@
+.plansSection {
+    display: flex;
+    width: 800px;
+    height: 250px;
+     border-radius: 15px;
+    border: solid black;
+    margin: 5px; 
+    background-color: #ffffff;
+    box-shadow: 5px 10px #888888;
+}
+
+.plansContainer {
+    display: flex;
+    width: 800px;
+    height: 250px;
+    /* border-radius: 15px; */
+     margin: 50px;
+}
+.plan {
+    border: 1px solid #ccc;
+    padding: 10px;
+     margin: 5px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.selected {
+    border-color: #007bff;
+}
+
+.formContainerH1 {
+    margin: 0 0 30px 0; 
+    width: 100%;
+    color: black;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .planH2 {
+       margin: 0 0 20px 0; 
+      color: black;
+      font-family: 'Inter', sans-serif;
+    }

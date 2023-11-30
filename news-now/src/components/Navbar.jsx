@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
 import { Link, useLocation } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -23,6 +23,8 @@ const Navbar = () => {
   const [modalActiveLogin, setModalActiveLogin] = useState(false);
   const [modalActiveRegister, setModalActiveRegister] = useState(false);
   const [clickedMenu, setClickedMenu] = useState(false);
+
+  let location = useLocation();
 
   const handleMenuClicked = () => {
     setClickedMenu(!clickedMenu);
@@ -56,7 +58,7 @@ const Navbar = () => {
       <div className={styles.logo}></div>
       <ul className={styles.ul}>
         <li className={styles.li}>
-          <Link className={styles.a} to="/">
+          <Link className={`${styles.a} ${location.pathname === "/" ? styles.activeLink : ""}`} to="/">
             Home
           </Link>
           <FontAwesomeIcon
@@ -65,7 +67,7 @@ const Navbar = () => {
           />
         </li>
         <li className={styles.li}>
-          <Link className={styles.a} to="/payments">
+          <Link className={`${styles.a} ${location.pathname === "/payments" ? styles.activeLink : ""}`} to="/payments">
             Payment Plans
           </Link>
           <FontAwesomeIcon
@@ -85,7 +87,7 @@ const Navbar = () => {
           </li>
         ) : (
           <li className={styles.li}>
-            <Link className={styles.a} to="/logout">
+            <Link className={`${styles.a} ${location.pathname === "/logout" ? styles.activeLink : ""}`} to="/logout">
               Logout
             </Link>
             <FontAwesomeIcon

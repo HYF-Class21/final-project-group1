@@ -14,6 +14,7 @@ const Navbar = () => {
   const { isLoggedIn } = useGlobalState();
   const [modalActiveLogin, setModalActiveLogin] = useState(false);
   const [modalActiveRegister, setModalActiveRegister] = useState(false);
+  const [clickedMenu, setClickedMenu] = useState(false);
 
   const handleMenuClicked = () => {
     setClickedMenu(!clickedMenu);

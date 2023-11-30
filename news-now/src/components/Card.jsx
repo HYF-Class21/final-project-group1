@@ -34,7 +34,6 @@ const Card = ({ article, index }) => {
     <div className={`${styles.card} ${styles["art" + index]}`}>
       <div className={styles.imgDiv}>
         <img
-          style={{ maxWidth: "100%", maxHeight: "100%" }}
           src={article.image}
           alt={article.title}
         />

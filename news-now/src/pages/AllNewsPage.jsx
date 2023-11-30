@@ -94,12 +94,6 @@ const AllNewsPage = () => {
             filters={filters}
             btype="category"
           />
-          {/* <RadioButton
-            value="buisness"
-            handleRadioChange={handleCategoryChange}
-            filters={filters}
-            btype="category"
-          /> */}
           <RadioButton
             value="technology"
             handleRadioChange={handleCategoryChange}

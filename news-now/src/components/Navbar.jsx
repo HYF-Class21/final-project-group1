@@ -1,8 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
-import { Link, useLocation} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImCross } from "react-icons/im";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHouse,
+  faMoneyBills,
+  faUser,
+  faRightFromBracket,
+  faNewspaper,
+} from "@fortawesome/free-solid-svg-icons";
 import { useGlobalState } from "../context/GlobalStateContext";
 
 import Modal from "../components/Modal";
@@ -15,6 +23,8 @@ const Navbar = () => {
   const [modalActiveLogin, setModalActiveLogin] = useState(false);
   const [modalActiveRegister, setModalActiveRegister] = useState(false);
   const [clickedMenu, setClickedMenu] = useState(false);
+
+  let location = useLocation();
 
   const handleMenuClicked = () => {
     setClickedMenu(!clickedMenu);
@@ -38,38 +48,52 @@ const Navbar = () => {
           setActiveLogin={setModalActiveLogin}
         />
       </Modal>
-      <h1 className={styles.h1}>NewsNow</h1>
+      <div className={styles.logoDiv}>
+        <h1 className={styles.h1}>NewsNow</h1>
+        <FontAwesomeIcon
+          icon={faNewspaper}
+          style={{ color: "#ffffff", fontSize: "70px"}}
+        />
+      </div>
+      <div className={styles.logo}></div>
       <ul className={styles.ul}>
         <li className={styles.li}>
-          <Link
-            className={styles.a}
-            to="/"
-          >
+          <Link className={`${styles.a} ${location.pathname === "/" ? styles.activeLink : ""}`} to="/">
             Home
           </Link>
+          <FontAwesomeIcon
+            icon={faHouse}
+            style={{ color: "#ffffff", fontSize: "25px" }}
+          />
         </li>
         <li className={styles.li}>
-          <Link
-            className={styles.a}
-            to="/payments"
-          >
+          <Link className={`${styles.a} ${location.pathname === "/payments" ? styles.activeLink : ""}`} to="/payments">
             Payment Plans
           </Link>
+          <FontAwesomeIcon
+            icon={faMoneyBills}
+            style={{ color: "#ffffff", fontSize: "27px" }}
+          />
         </li>
         {!isLoggedIn ? (
           <li className={styles.li} onClick={() => setModalActiveLogin(true)}>
             <Link className={styles.a} to="">
               Login
             </Link>
+            <FontAwesomeIcon
+              icon={faUser}
+              style={{ color: "#ffffff", fontSize: "25px" }}
+            />
           </li>
         ) : (
           <li className={styles.li}>
-            <Link
-              className={styles.a}
-              to="/logout"
-            >
+            <Link className={`${styles.a} ${location.pathname === "/logout" ? styles.activeLink : ""}`} to="/logout">
               Logout
             </Link>
+            <FontAwesomeIcon
+              icon={faRightFromBracket}
+              style={{ color: "#ffffff", fontSize: "25px" }}
+            />
           </li>
         )}
       </ul>

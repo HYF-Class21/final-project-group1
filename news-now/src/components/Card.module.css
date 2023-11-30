@@ -1,22 +1,156 @@
-div {
-  padding: 2px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
 
 .card {
-  width: 500px;
-  font-size: 26px;
-  border: 1px solid black;
-  margin: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  font-family: 'Inter', sans-serif;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.border {
-  border: 1px solid black;
+.art0 { grid-area: art0; }
+.art0 .imgDiv {
+  height: 45%;
+}
+.art0 .contentDiv {
+  height: 55%;
 }
 
-.bold {
-  font-weight: bold;
+.art1 { 
+  grid-area: art1; 
+}
+.art1 .imgDiv {
+  height: 340px;
 }
 
-.gray {
+.art2 { grid-area: art2; }
+.art2 .imgDiv {
+  height: 45%;
+}
+.art2 .contentDiv {
+  height: 55%;
+}
+
+.art3 { grid-area: art3; }
+.art3 .imgDiv {
+  height: 340px;
+}
+
+.art4 { grid-area: art4; }
+.art4 .imgDiv {
+  height: 40%;
+}
+.art4 .contentDiv {
+  height: 60%;
+}
+
+.art5 { grid-area: art5; }
+.art5 .imgDiv {
+  height: 40%;
+}
+.art5 .contentDiv {
+  height: 60%;
+}
+
+.art6 { grid-area: art6; }
+.art6 .imgDiv {
+  height: 40%;
+}
+.art6 .contentDiv {
+  height: 60%;
+}
+
+.art7 { grid-area: art7; }
+.art7 .imgDiv {
+  height: 40%;
+}
+.art7 .contentDiv {
+  height: 60%;
+}
+
+.art8 { grid-area: art8; }
+.art8 .imgDiv {
+  height: 40%;
+}
+.art8 .contentDiv {
+  height: 60%;
+}
+
+.art9 { grid-area: art9; }
+.art9 .imgDiv {
+  height: 40%;
+}
+.art9 .contentDiv {
+  height: 60%;
+}
+
+.imgDiv img {
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contentDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dateDiv {
+  display: flex;
+  justify-content: space-between;
+  margin: 7px 20px;
+}
+
+.date {
   color: gray;
+  margin-left: 10px;
+}
+
+.categoryDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.category {
+  padding: 2px 5px;
+  border-radius: 10px;
+  margin: 0 5px;
+}
+
+.title {
+  color: black;
+  font-size: 24px;
+  margin: 10px 20px;
+  font-weight: 600;
+}
+
+.description {
+  color: #9A9A9A;
+  font-size: 18px;
+  margin: 10px 20px;
+}
+
+.buttonDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  display: block;
+  width: 200px;
+  padding: 10px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  margin: 15px 20px 30px 20px;
+}
+
+.link {
+  text-decoration: none;
 }

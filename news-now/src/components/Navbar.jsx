@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./Navbar.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImCross } from "react-icons/im";
 import { useGlobalState } from "../context/GlobalStateContext";
@@ -41,12 +41,18 @@ const Navbar = () => {
       <h1 className={styles.h1}>NewsNow</h1>
       <ul className={styles.ul}>
         <li className={styles.li}>
-          <Link className={styles.a} to="/">
+          <Link
+            className={styles.a}
+            to="/"
+          >
             Home
           </Link>
         </li>
         <li className={styles.li}>
-          <Link className={styles.a} to="/payments">
+          <Link
+            className={styles.a}
+            to="/payments"
+          >
             Payment Plans
           </Link>
         </li>
@@ -58,7 +64,10 @@ const Navbar = () => {
           </li>
         ) : (
           <li className={styles.li}>
-            <Link className={styles.a} to="/logout">
+            <Link
+              className={styles.a}
+              to="/logout"
+            >
               Logout
             </Link>
           </li>

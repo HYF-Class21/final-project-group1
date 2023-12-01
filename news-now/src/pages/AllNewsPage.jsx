@@ -143,6 +143,7 @@ const AllNewsPage = () => {
         {globData.map((article) => (
           <Card key={article.title} article={article} onClick={handleCounter} />
         ))}
+        <Footer/>
       </div>
     </>
   );

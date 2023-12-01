@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import React from "react";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import Comment from "../components/Comment";
 
 import { useGlobalState } from "../context/GlobalStateContext";
 
@@ -30,37 +31,44 @@ const ArticlePage = () => {
   };
 
   return (
-    <div>
-      {/* the article */}
+    <>
       <Navbar />
-      <h1>{currentArticle.title}</h1>
-      <img
-        style={{ width: "50%", height: "50%" }}
-        src={currentArticle.image}
-        alt={currentArticle.title}
-      />
-      <p> article content is : {currentArticle.content} </p>
-      <br />
+      <div className={styles.container}>
+        {/* the article */}
 
-      {comments.map((comment) => (
-        <>
-          <p>{comment}</p>
+        <h1 className={styles.title}>{currentArticle.title}</h1>
+        <img
+          className={styles.image}
+          src={currentArticle.image}
+          alt={currentArticle.title}
+        />
+        <p>{currentArticle.content} </p>
+      </div>
+      <div className={styles.container}>
+        {/* comments */}
+        {comments.map((comment) => (
+          <>
+            <Comment key={comment} comment={comment} />
+            <br />
+          </>
+        ))}
+
+        {/* the form */}
+        <form onSubmit={handleFormSubmit}>
+          <p>
+            <label htmlFor="comment">Your comments:</label>
+          </p>
+          <textarea
+            id="comment"
+            className={styles.comment}
+            name="comment"
+            placeholder="Write a comment"
+          ></textarea>
           <br />
-        </>
-      ))}
-
-      {/* the form */}
-      <form onSubmit={handleFormSubmit}>
-        <p>
-          <label htmlFor="w3review">Review of W3Schools:</label>
-        </p>
-        <textarea id="comment" name="comment" rows="8" cols="100">
-          comment here john
-        </textarea>
-        <br />
-        <input type="submit" value="Submit" />
-      </form>
-    </div>
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+    </>
   );
 };
 

@@ -1,11 +1,18 @@
 import styles from "./Footer.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faFacebook} from "@fortawesome/free-brands-svg-icons";
+import {faSanpchat} from "@fortawesome/free-brands-svg-icons";
+
+
+
+
 
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
         <section>
-            <h3>Register for free</h3>
+            <h3>News Now</h3>
 
             <form>
                 <input type="email"></input>
@@ -13,7 +20,6 @@ const Footer = () => {
                     Sign up!
                 </button>
             </form>
-
         </section>
         <section className={styles.info}>
              {/* example of copyright container  */}
@@ -25,53 +31,25 @@ const Footer = () => {
           <a className="text-white" href="#">
             <h2>2023 © News Now </h2>
           </a>
+          
           </form>
-        <section>
-            <ul>
-        <li>
-                  <a href='#!' className='text-white'>
-                    
-                  </a>
-                </li>
-                <li>
-                  <a href='#!' className='text-white'>
-                    
-                  </a>
-                </li>
-                </ul>
-        </section>
+       
           {/* example of copyright container  */}
         </section>
         <section className={styles.reg}>
             <div 
-            className="text-center"
+            className="icon"
             style={{ backgroundcolor: "#fff" }}>
-                <a className="text-white" href="">
-            <h1> News Now</h1>
+                <a className="icon" href="">
+                <FontAwesomeIcon icon={faFacebook}  style={{ color: "#fff", fontSize: "30px"}} />
+                <FontAwesomeIcon icon={faSnapchat} style={{ color: "#fff", fontSize: "30px"}}/>
+
             </a>
 
             </div>
- 
-
-            <section className={styles.plan}>
-                <div className="text-content"
-                style={{background:""}}> 
-                <a className="text-content" href="#">
-                <h1> Payment Plan </h1>
-                 </a>                   
-                </div>
-
-            </section> 
-
-            
         </section>
-        <section className={styles.img}>
-            <div className="slide-container"> 
 
-
-      </div>
-
-        </section>
+        
     </footer>
   );
 };

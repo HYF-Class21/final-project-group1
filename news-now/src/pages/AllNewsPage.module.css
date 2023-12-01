@@ -1,3 +1,75 @@
+.newsContainer {
+  /* background-color: #f4f6fc; */
+  background-color: #e6e6e6;
+  width: 100vw;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.articlesContainer {
+  width: 92%;
+  display: grid;
+  grid-template-columns: 400px 375px 375px 400px;
+  grid-template-rows: 600px 600px 600px;
+  gap: 40px;
+  grid-template-areas:
+  "art0   art1    art1    art2  "
+  "art5   art4    art3    art3  "
+  "art6   art7    art9    art8  ";
+}
+
 .counter {
   color: red;
 }
+
+/* -------- FILTER NAVBAR STYLING ---------- */
+
+.categories {
+  
+  margin: 40px 0 40px 0;
+}
+
+.filterOption {
+  cursor: pointer;
+  margin: 0 10px;
+  font-size: 30px; 
+}
+
+.selectedCategory {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  padding: 0 4px;
+}
+
+.countries {
+  /*margin-left: auto; DO THIS WHEN COUNTER WILL BE ADDED*/
+  margin-left: 250px;
+  display: flex;
+  align-items: center;
+  font-size: 20px; /* Adjust the font size as needed */
+  padding: 10px; /* Adjust the padding as needed */
+}
+
+.countries label {
+  display: block; /* Make the label a block element to control its width */
+  margin-bottom: 5px; /* Add some spacing below the label */
+}
+
+.filterContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+
+
+
+
+

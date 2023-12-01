@@ -8,7 +8,7 @@ import { useNews } from "../hooks";
 import { articles } from "../data";
 
 import Card from "../components/Card";
-import RadioButton from "../components/RadioButton";
+import FilterNav from '../components/FilterNav';
 
 const AllNewsPage = () => {
   const {
@@ -21,6 +21,7 @@ const AllNewsPage = () => {
     globData,
     setGlobData,
   } = useGlobalState();
+
   const [filters, setFilters] = useState({ country: "us", category: "sports" });
 
   const getGlobData = () => {
@@ -54,98 +55,104 @@ const AllNewsPage = () => {
     setCounter(counter - 1);
   };
 
+  const handleFilterChange = (filterType, value) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [filterType]: value,
+    }));
+  };
+
   return (
-    <>
-      <div>
-        <Navbar />
-      </div>
-      <div>
-        {isLoggedIn && !isPayed ? (
-          <div className={styles.counter}>{counter} free articles</div>
-        ) : (
-          ""
-        )}
+    <div className={styles.newsContainer}>
+      <Navbar />
+      <div className={styles.contentContainer}>
         <div>
-          <RadioButton
-            value="us"
-            name="United States"
-            handleRadioChange={handleCountryChange}
-            filters={filters}
-            btype="country"
-          />
-          <RadioButton
-            value="ie"
-            name="Ireland"
-            handleRadioChange={handleCountryChange}
-            filters={filters}
-            btype="country"
-          />
-          <RadioButton
-            value="pl"
-            name="Poland"
-            handleRadioChange={handleCountryChange}
-            filters={filters}
-            btype="country"
-          />
-          <p>Selected Option: {filters.country}</p>
+          {isLoggedIn && !isPayed ? (
+            <div className={styles.counter}>{counter} free articles</div>
+          ) : (
+            ""
+          )}
+          <div className={styles.filterContainer}>
+            {/* CATEGORIES */}
+            <div className={styles.categories}>
+              <FilterNav
+                value="health"
+                name="Health"
+                handleFilterChange={handleFilterChange}
+                activeFilter={filters.category}
+                filterType="category"
+              />
+              <FilterNav
+                value="entertainment"
+                name="Entertainment"
+                handleFilterChange={handleFilterChange}
+                activeFilter={filters.category}
+                filterType="category"
+              />
+              <FilterNav
+                value="general"
+                name="General"
+                handleFilterChange={handleFilterChange}
+                activeFilter={filters.category}
+                filterType="category"
+              />
+              <FilterNav
+                value="science"
+                name="Science"
+                handleFilterChange={handleFilterChange}
+                activeFilter={filters.category}
+                filterType="category"
+              />
+              <FilterNav
+                value="sports"
+                name="Sports"
+                handleFilterChange={handleFilterChange}
+                activeFilter={filters.category}
+                filterType="category"
+              />
+              <FilterNav
+                value="technology"
+                name="Technology"
+                handleFilterChange={handleFilterChange}
+                activeFilter={filters.category}
+                filterType="category"
+              />
+              {/* <p>Selected Option: {filters.category}</p> */}
+          </div>
+          {/* COUNTRIES */}
+          <div className={styles.countries}>
+            <label htmlFor="countrySelect">Select Country:</label>
+            <select
+              id="countrySelect"
+              value={filters.country}
+              onChange={handleCountryChange}
+              className={`${styles.select} ${styles.blackAndWhite}`}
+            >
+              <option value="us">United States</option>
+              <option value="pl">Poland</option>
+              <option value="ie">Ireland</option>
+            {/* Add more countries as needed */}
+            </select>
+            {/* <p>Selected Option: {filters.country}</p> */}
+            
+          
+          </div>
+        </div>
+          <div className={styles.articlesContainer}>
+            {globData.slice(0, 10).map((article, index) => {
+              return (
+                <Card
+                  key={article.title}
+                  article={article}
+                  index={index}
+                  onClick={handleCounter}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
-
-      <div>
-        <div>
-          <RadioButton
-            value="health"
-            handleRadioChange={handleCategoryChange}
-            filters={filters}
-            btype="category"
-          />
-          <RadioButton
-            value="entertainment"
-            handleRadioChange={handleCategoryChange}
-            filters={filters}
-            btype="category"
-          />
-          <RadioButton
-            value="general"
-            handleRadioChange={handleCategoryChange}
-            filters={filters}
-            btype="category"
-          />
-          <RadioButton
-            value="science"
-            handleRadioChange={handleCategoryChange}
-            filters={filters}
-            btype="category"
-          />
-          <RadioButton
-            value="sports"
-            handleRadioChange={handleCategoryChange}
-            filters={filters}
-            btype="category"
-          />
-          <RadioButton
-            value="technology"
-            handleRadioChange={handleCategoryChange}
-            filters={filters}
-            btype="category"
-          />
-          <p>Selected Option: {filters.category}</p>
-        </div>
-      </div>
-
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "flex-end",
-          flexWrap: "wrap",
-        }}
-      >
-        {globData.map((article) => (
-          <Card key={article.title} article={article} onClick={handleCounter} />
-        ))}
-        <Footer/>
-      </div>
-    </>
+    </div>
   );
 };
 

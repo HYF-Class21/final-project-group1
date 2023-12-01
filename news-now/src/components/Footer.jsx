@@ -1,4 +1,4 @@
-import React from "react";
+
 
 import styles from "./Footer.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -24,33 +24,28 @@ const Footer = () => {
         </section>
         <section className={styles.info}>
              {/* example of copyright container  */}
-             <form>
-          <div
-            className="text-center"
-            style={{ backgroundcolor: "rgba(0, 0, 0, 0.2)", }}>
-          </div>
-          <a className="text-white" href="#">
-            <h2>2023 © News Now </h2>
-          </a>
+            <form>
+              <div
+                className="text-center"
+                style={{ backgroundcolor: "rgba(0, 0, 0, 0.2)", }}>
+              </div>
+              <a className="text-white" href="#">
+                <h2>2023 © News Now </h2>
+              </a>
           
-          </form>
+            </form>
        
           {/* example of copyright container  */}
         </section>
         <section className={styles.reg}>
-            <div 
+          <div 
             className="icon"
             style={{ backgroundcolor: "#fff" }}>
-                <a className="icon" href="">
+              <a className="icon" href="">
                 <FontAwesomeIcon icon={faFacebook}  style={{ color: "#fff", fontSize: "30px"}} />
-               
-
-            </a>
-
-            </div>
-        </section>
-
-        
+              </a>
+          </div>
+        </section>   
     </footer>
   );
 };

@@ -14,7 +14,7 @@ const LoginForm = ({
   activeRegister,
   setActiveRegister,
 }) => {
-  const { isLoggedIn, setIsLoggedIn } = useGlobalState();
+  const { isLoggedIn, setIsLoggedIn, isPayed } = useGlobalState();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -23,7 +23,6 @@ const LoginForm = ({
     e.preventDefault();
     const emailIsValid = validateEmail(email);
     const passwordIsValid = validatePassword(password);
-    console.log(emailIsValid, passwordIsValid)
 
     if (emailIsValid && passwordIsValid) {
       try {
@@ -35,7 +34,6 @@ const LoginForm = ({
         } else {
           await Cookies.set("email", email);
           await Cookies.set("isLoggedIn", true);
-          await Cookies.set("isPayed", false);
           await Cookies.set("counter", String(5), { expires: 7 });
 
           setEmail("");

@@ -1,7 +1,6 @@
 import styles from "./Footer.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faFacebook} from "@fortawesome/free-brands-svg-icons";
-import {faSanpchat} from "@fortawesome/free-brands-svg-icons";
 
 
 
@@ -42,7 +41,7 @@ const Footer = () => {
             style={{ backgroundcolor: "#fff" }}>
                 <a className="icon" href="">
                 <FontAwesomeIcon icon={faFacebook}  style={{ color: "#fff", fontSize: "30px"}} />
-                <FontAwesomeIcon icon={faSnapchat} style={{ color: "#fff", fontSize: "30px"}}/>
+               
 
             </a>
 

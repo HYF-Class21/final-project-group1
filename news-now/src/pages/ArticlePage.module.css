@@ -1,3 +1,22 @@
-br {
-    display:block;
-}
+.container {
+    width: 65%;
+    background-color: beige;
+    margin: 0 auto;
+    margin-top: 60px;
+  }
+  
+  .comment {
+    width: 100%;
+  }
+  
+  .image {
+    width: 80%;
+    height: 80%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .title {
+    padding: 20px;
+  }
+  

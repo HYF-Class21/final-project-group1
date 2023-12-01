@@ -1,0 +1,18 @@
+.container {
+  margin: 0px;
+}
+
+.timeStamp {
+  margin-bottom: 5px;
+  color: gray;
+  font-size: small;
+}
+
+.comment {
+  border-radius: 1px;
+  border: 1px solid black;
+  background-color: #ffffff;
+  box-shadow: 4px 4px #888888;
+  overflow: hidden;
+  word-wrap: break-word;
+}

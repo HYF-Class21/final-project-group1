@@ -1,53 +1,81 @@
-import React, { useState } from 'react';
-import Navbar from '../components/Navbar';
+import React, { useState } from "react";
+import Navbar from "../components/Navbar";
 import styles from "./PaymentsPage.module.css";
-import PaymentForm from '../components/PaymentForm';
+import PaymentForm from "../components/PaymentForm";
 
 const paymentPlansData = [
-  { id: 1, name: '1 month', price: 20.00 },
-  { id: 2, name: '6 months', price: 100.00 },
-  { id: 3, name: '1 year', price: 200.00 },
+  {
+    id: 1,
+    name: "1 month",
+    price: 20,
+    description:
+      "Get a month-to-month subscription for just $20. Stay informed with our comprehensive coverage and stay up to date with the latest news and insights.",
+  },
+  {
+    id: 2,
+    name: "6 months",
+    price: 100,
+    description:
+      "Save with our 6-month plan at a discounted rate of $100. Enjoy uninterrupted access to our premium content for half a year.",
+  },
+  {
+    id: 3,
+    name: "1 year",
+    price: 170,
+    description:
+      "Get the best value with our annual plan. For only $170, you'll have unlimited access to our news articles, features, and exclusive content for a full year.",
+  },
 ];
 
 const PaymentsPage = () => {
-  const [selectedPlan, setSlectedPlan] = useState(null);
+  const [selectedPlan, setSelectedPlan] = useState({
+    name: "No plan selected",
+    price: 0,
+    description: "",
+  });
 
   const handleSelectPlan = (plan) => {
     setSelectedPlan(plan);
   };
 
   return (
-    <>
-      <div>
-        <Navbar />
-      </div>
-      <div>
-        <h2 className={styles.formContainerH1}>Choose a Payment Plan</h2>
+    <div className={styles.paymentsContainer}>
+      <Navbar />
+      <div className={styles.contentContainer}>
+        <h1 className={styles.paymentsH1}>Payment Plans</h1>
+        <p className={styles.paymentsP}>
+          {" "}
+          Select the plan that works best for you and enjoy unlimited access to
+          our content. Whether you choose one of our plans, you'll get exclusive
+          access to the latest news and in-depth articles. Stay informed and
+          stay ahead with our comprehensive coverage across various topics.
+        </p>
         <div className={styles.plansContainer}>
           {paymentPlansData.map((plan) => (
-            <div className={styles.plansSection}>
-              <div key={plan.id} className={`plan ${selectedPlan === plan ? 'selected' : ''}`}>
-                <h3 className={styles.planH2}>{plan.name}</h3>
-                <p className={styles.plan}>${plan.price.toFixed(2)} per month</p>
-                <button className={styles.plan} onClick={() => handleSelectPlan(plan)}>Pay</button>
-              </div>
+            <div key={plan.id} className={styles.plansSection}>
+              <h2 className={styles.planH2}>{plan.name}</h2>
+              <p className={styles.plansP}>${plan.price}</p>
+              <p className={styles.description}>{plan.description}</p>
+              <button
+                className={styles.button}
+                onClick={() => handleSelectPlan(plan)}
+              >
+                Pay
+              </button>
             </div>
           ))}
           <div>
-            <PaymentForm />
+            <div className={styles.selectedPlan}>
+              <h2>Selected Plan</h2>
+              <p>{selectedPlan.name}</p>
+              <p>${selectedPlan.price}</p>
+            </div>
+            <PaymentForm selectedPlan={selectedPlan} />
           </div>
         </div>
-        {selectedPlan && (
-          <div className={styles.selected}>
-            <h2>Selected Plan</h2>
-            <p>{selectedPlan.name}</p>
-            <p>${selectedPlan.price.toFixed(2)}</p>
-          </div>
-        )}
-
       </div>
-    </>
+    </div>
   );
-}
+};
 
 export default PaymentsPage;

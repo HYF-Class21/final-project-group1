@@ -1,20 +1,23 @@
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
 import styles from './LogoutPage.module.css';
+import { useGlobalState } from "../context/GlobalStateContext";
 import Navbar from '../components/Navbar';
 
 const LogoutPage = () => {
   const navigate = useNavigate();
+  const { isPayed, setIsPayed } = useGlobalState();
 
   const handleLogout = async () => {
     Cookies.set('isLoggedIn', false);
     Cookies.remove("count");
+    setIsPayed(false);
     navigate("/");
     window.location.reload();
   };
 
   return (
-    <div>
+    <div className={styles.pageContainer}>
       <Navbar />
       <div className={styles.logoutContainer}>    
           <div className={styles.logout}>

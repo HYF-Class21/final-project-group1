@@ -1,6 +1,7 @@
 .newsContainer {
   /* background-color: #f4f6fc; */
   background-color: #e6e6e6;
+  width: 100vw;
 }
 
 .contentContainer {

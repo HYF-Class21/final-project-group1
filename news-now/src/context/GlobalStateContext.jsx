@@ -7,9 +7,7 @@ const GlobalStateProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(
     Cookies.get("isLoggedIn") === "true" || false
   );
-  const [isPayed, setIsPayed] = useState(
-    Cookies.get("isPayed") === "true" || false
-  );
+  const [isPayed, setIsPayed] = useState(false);
   const [counter, setCounter] = useState(
     parseInt(Cookies.get("counter"), 10) || 5
   );
@@ -17,9 +15,9 @@ const GlobalStateProvider = ({ children }) => {
 
   useEffect(() => {
     Cookies.set("isLoggedIn", isLoggedIn.toString(), { expires: 7 });
-    Cookies.set("isPayed", isPayed.toString(), { expires: 7 });
+    // Cookies.set("isPayed", isPayed.toString(), { expires: 7 });
     Cookies.set("counter", counter.toString(), { expires: 7 });
-  }, [isLoggedIn, isPayed, counter]);
+  }, [isLoggedIn, counter]);
   
   const contextValue = {
     isLoggedIn,

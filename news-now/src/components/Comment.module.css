@@ -1,18 +1,43 @@
 .container {
+  margin: 0 0 20px 0;
+  width: 90%;
+  font-size: 22px;
+  border-radius: 4px;
+  display: flex;
+}
+
+.commentContent {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+}
+
+.commentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10px 0 10px;
+}
+
+.avatar {
+  border-radius: 4px 0 0 4px;
+  width: 6%;
+  height: 80px;
+  margin-right: 10px;
+}
+
+.user {
   margin: 0px;
+  font-weight: bold;
 }
 
 .timeStamp {
-  margin-bottom: 5px;
   color: gray;
-  font-size: small;
+  font-size: 18px;
+  margin: 7px;
 }
 
 .comment {
-  border-radius: 1px;
-  border: 1px solid black;
-  background-color: #ffffff;
-  box-shadow: 4px 4px #888888;
-  overflow: hidden;
   word-wrap: break-word;
+  margin: 10px;
 }

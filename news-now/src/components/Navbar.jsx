@@ -52,22 +52,36 @@ const Navbar = () => {
         <h1 className={styles.h1}>NewsNow</h1>
         <FontAwesomeIcon
           icon={faNewspaper}
-          style={{ color: "#ffffff", fontSize: "70px"}}
+          style={{ color: "#ffffff", fontSize: "70px" }}
         />
       </div>
       <div className={styles.logo}></div>
       <ul className={styles.ul}>
         <li className={styles.li}>
-          <Link className={`${styles.a} ${location.pathname === "/" ? styles.activeLink : ""}`} to="/">
+          <Link
+            className={`${styles.a} ${
+              location.pathname === "/" ||
+              location.pathname.startsWith("/article")
+                ? styles.activeLink
+                : ""
+            }`}
+            to="/"
+          >
             Home
           </Link>
+
           <FontAwesomeIcon
             icon={faHouse}
             style={{ color: "#ffffff", fontSize: "25px" }}
           />
         </li>
         <li className={styles.li}>
-          <Link className={`${styles.a} ${location.pathname === "/payments" ? styles.activeLink : ""}`} to="/payments">
+          <Link
+            className={`${styles.a} ${
+              location.pathname === "/payments" ? styles.activeLink : ""
+            }`}
+            to="/payments"
+          >
             Payment Plans
           </Link>
           <FontAwesomeIcon
@@ -87,7 +101,12 @@ const Navbar = () => {
           </li>
         ) : (
           <li className={styles.li}>
-            <Link className={`${styles.a} ${location.pathname === "/logout" ? styles.activeLink : ""}`} to="/logout">
+            <Link
+              className={`${styles.a} ${
+                location.pathname === "/logout" ? styles.activeLink : ""
+              }`}
+              to="/logout"
+            >
               Logout
             </Link>
             <FontAwesomeIcon

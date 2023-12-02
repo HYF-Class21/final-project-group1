@@ -5,15 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faFacebook, faSnapchat, faTwitter} from "@fortawesome/free-brands-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
-
-
-
-
 const Footer = () => {
   return (
     <footer className={styles.footer}>
         <section>
-          <a href="#">
+          <a className={styles.h3} href="#">
             <h3>News Now</h3>
           </a>
             <form>
@@ -24,37 +20,31 @@ const Footer = () => {
             </form>
         </section>
         <section className={styles.info}>
-            <form>
+            {/* <form>
               <div
                 className="text-center"
                 style={{ backgroundcolor: "rgba(0, 0, 0, 0.2)", }}>
-              </div>
+              </div> */}
               <a className="text-white" href="#">
                 <h2>2023 © News Now </h2>
               </a>
-          
-            </form>
-       
-          {/* example of copyright container  */}
+            {/* </form> */}
         </section>
-        <section className={styles.icons}>
+        <section>
           <div 
-            className="icon-fb"
-            style={{ backgroundcolor: "#fff" }}>
+            className={styles.social}>
               <a className="icon-fb" href="#">
-                <FontAwesomeIcon icon={faFacebook}  style={{ color: "#fff", fontSize: "30px"}} />
+                <FontAwesomeIcon icon={faFacebook} className={styles.socialIcons}  />
               </a>
                 <a className="icon-sc" href="#">
-                   <FontAwesomeIcon icon={faSnapchat}  style={{ color: "#fff", fontSize: "30px"}} />
+                   <FontAwesomeIcon icon={faSnapchat} className={styles.socialIcons} />
                 </a>
                     <a className="icon-inst" href="#">
-                      <FontAwesomeIcon icon={faInstagram}  style={{ color: "#fff", fontSize: "30px"}} />
+                      <FontAwesomeIcon icon={faInstagram} className={styles.socialIcons} />
                     </a>
                     <a className="icon-twit" href="#">
-                      <FontAwesomeIcon icon={faTwitter}  style={{ color: "#fff", fontSize: "30px"}} />
-                    </a>
-
-                   
+                      <FontAwesomeIcon icon={faTwitter} className={styles.socialIcons}/>
+                    </a> 
           </div>
         </section>   
     </footer>

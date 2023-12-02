@@ -20,11 +20,12 @@
     outline-color: #000;
 }
 
-.footer h3 {
+.h3 {
     text-align: left;
     font-size:32px;
     font-family: 'Abril Fatface', serif;
     color: #f2ebeb ;
+    text-decoration: none;
     
 }
 

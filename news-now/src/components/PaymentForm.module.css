@@ -62,7 +62,7 @@
 }
 
 img {
-  z-index: 200;
+  z-index: 1;
   width: 50px;
 }
 

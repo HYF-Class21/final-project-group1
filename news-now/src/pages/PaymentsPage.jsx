@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import styles from "./PaymentsPage.module.css";
 import PaymentForm from "../components/PaymentForm";
+import Footer from "../components/Footer";
 
 const paymentPlansData = [
   {
@@ -68,12 +69,12 @@ const PaymentsPage = () => {
             <div className={styles.selectedPlan}>
               <h2>Selected Plan</h2>
               <p>{selectedPlan.name}</p>
-              <p>${selectedPlan.price}</p>
             </div>
             <PaymentForm selectedPlan={selectedPlan} />
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

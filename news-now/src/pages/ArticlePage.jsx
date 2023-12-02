@@ -1,5 +1,6 @@
 import styles from "./ArticlePage.module.css";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import React from "react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -60,6 +61,7 @@ const ArticlePage = () => {
 
   return (
     <div className={styles.pageContainer}>
+      <div>
       <Navbar />
       <div className={styles.container}>
         {/* the article */}
@@ -143,6 +145,8 @@ const ArticlePage = () => {
           </form>
         </div>
       </div>
+      </div>
+      <Footer />
     </div>
   );
 };

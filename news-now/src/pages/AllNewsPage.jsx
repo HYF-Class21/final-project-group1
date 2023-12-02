@@ -8,7 +8,8 @@ import { useNews } from "../hooks";
 import { articles } from "../data";
 
 import Card from "../components/Card";
-import FilterNav from '../components/FilterNav';
+import FilterNav from "../components/FilterNav";
+import Footer from "../components/Footer";
 
 const AllNewsPage = () => {
   const {
@@ -67,12 +68,15 @@ const AllNewsPage = () => {
       <Navbar />
       <div className={styles.contentContainer}>
         <div>
-          {isLoggedIn && !isPayed ? (
-            <div className={styles.counter}>{counter} free articles</div>
-          ) : (
-            ""
-          )}
           <div className={styles.filterContainer}>
+            {/* COUNTER */}
+            {isLoggedIn && !isPayed ? (
+              <div className={styles.counterDiv}>
+                <div className={styles.counter}>{counter}</div><p>free articles</p>
+              </div>
+            ) : (
+              ""
+            )}
             {/* CATEGORIES */}
             <div className={styles.categories}>
               <FilterNav
@@ -118,26 +122,23 @@ const AllNewsPage = () => {
                 filterType="category"
               />
               {/* <p>Selected Option: {filters.category}</p> */}
+            </div>
+            {/* COUNTRIES */}
+            <div className={styles.countries}>
+              <label htmlFor="countrySelect">Select Country:</label>
+              <select
+                value={filters.country}
+                onChange={handleCountryChange}
+                className={styles.countrySelect}
+              >
+                <option value="us">United States</option>
+                <option value="pl">Poland</option>
+                <option value="ie">Ireland</option>
+                {/* Add more countries as needed */}
+              </select>
+              {/* <p>Selected Option: {filters.country}</p> */}
+            </div>
           </div>
-          {/* COUNTRIES */}
-          <div className={styles.countries}>
-            <label htmlFor="countrySelect">Select Country:</label>
-            <select
-              id="countrySelect"
-              value={filters.country}
-              onChange={handleCountryChange}
-              className={`${styles.select} ${styles.blackAndWhite}`}
-            >
-              <option value="us">United States</option>
-              <option value="pl">Poland</option>
-              <option value="ie">Ireland</option>
-            {/* Add more countries as needed */}
-            </select>
-            {/* <p>Selected Option: {filters.country}</p> */}
-            
-          
-          </div>
-        </div>
           <div className={styles.articlesContainer}>
             {globData.slice(0, 10).map((article, index) => {
               return (
@@ -152,6 +153,7 @@ const AllNewsPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

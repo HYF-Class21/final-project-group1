@@ -24,7 +24,6 @@ const Footer = () => {
             </form>
         </section>
         <section className={styles.info}>
-             {/* example of copyright container  */}
             <form>
               <div
                 className="text-center"

@@ -1,6 +1,6 @@
 
 .footer {
-    background-color: black;
+    background-color:  black;
     text-align: center;
     padding-bottom: 38px;
     width: auto;
@@ -12,6 +12,8 @@
     align-items: center;
     padding-left: 60px;
     padding-right: 60px;
+    margin-top: 20px;
+
     
 }
 .btnSignup{
@@ -80,9 +82,9 @@
     background-color:#fff ;
 }
 
-.icon-fb{
-    align-items: center;
-    justify-items: center;
+.icons {
+    
+    
 }
 
 

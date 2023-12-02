@@ -2,8 +2,8 @@
 
 import styles from "./Footer.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faFacebook, faSnapchat} from "@fortawesome/free-brands-svg-icons";
-
+import {faFacebook, faSnapchat, faTwitter} from "@fortawesome/free-brands-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 
 
@@ -37,7 +37,7 @@ const Footer = () => {
        
           {/* example of copyright container  */}
         </section>
-        <section className={styles.reg}>
+        <section className={styles.icons}>
           <div 
             className="icon-fb"
             style={{ backgroundcolor: "#fff" }}>
@@ -47,6 +47,14 @@ const Footer = () => {
                 <a className="icon-sc" href="#">
                    <FontAwesomeIcon icon={faSnapchat}  style={{ color: "#fff", fontSize: "30px"}} />
                 </a>
+                    <a className="icon-inst" href="#">
+                      <FontAwesomeIcon icon={faInstagram}  style={{ color: "#fff", fontSize: "30px"}} />
+                    </a>
+                    <a className="icon-twit" href="#">
+                      <FontAwesomeIcon icon={faTwitter}  style={{ color: "#fff", fontSize: "30px"}} />
+                    </a>
+
+                   
           </div>
         </section>   
     </footer>

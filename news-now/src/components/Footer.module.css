@@ -1,17 +1,17 @@
 
 .footer {
-    background-color: rgb(29, 29, 32);
+    background-color: black;
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
+    padding-bottom: 38px ;
     width: 1493px;
+    width: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between; 
     border-style: solid;
     border-color: #4e4949;
-    border-radius: 20px;  
+    border-radius: 20px 40px 50px;  
+    
 }
 .btnSignup{
     outline-color: #000;
@@ -20,20 +20,23 @@
 .footer h3 {
     text-align: left;
     font-size:32px;
-    color: #fff ;
+    font-family: 'Abril Fatface', serif;
+    color: #f2ebeb ;
     
 }
 
 .footer input{
-    border: solid red;
+    border: solid rgb(177, 17, 17);
     border-style: inset;
-    border-radius: 8px;
+    border-radius: 9px 9px 9px  9px;
+   
 }
 
 .footer button{
     border:solid red;
     border-radius: 7px;
-    background-color: blue;
+    background-color: blue; 
+    font-size: smaller;
      
 }
 
@@ -58,35 +61,27 @@
      
 } 
 
-      
-
-
-
-
-
-
-
-
 .info h2 {
-    font-weight: bold;
-    font-family: sans-serif;
+   
+    font-family: 'Abril Fatface', serif;
     color: #fff;
-    font-size: smaller;
-    margin-bottom: -200px;
-    padding-right: -650px;
-    font-style: oblique;
-    align-items: flex-end ;
+    text-align: center;
+    padding-bottom: none;
+    margin-left: -185px;
+    margin-bottom: -40px;
+    
     
     
 
 }
 
-
-
-
-
 .text-center {
     background-color:#fff ;
+}
+
+.icon-fb{
+    align-items: center;
+    justify-items: center;
 }
 
 

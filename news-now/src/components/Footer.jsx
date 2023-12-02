@@ -2,7 +2,7 @@
 
 import styles from "./Footer.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faFacebook} from "@fortawesome/free-brands-svg-icons";
+import {faFacebook, faSnapchat} from "@fortawesome/free-brands-svg-icons";
 
 
 
@@ -13,8 +13,9 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
         <section>
+          <a href="#">
             <h3>News Now</h3>
-
+          </a>
             <form>
                 <input type="email"></input>
                 <button type="button" className="btnSignup">
@@ -39,11 +40,14 @@ const Footer = () => {
         </section>
         <section className={styles.reg}>
           <div 
-            className="icon"
+            className="icon-fb"
             style={{ backgroundcolor: "#fff" }}>
-              <a className="icon" href="">
+              <a className="icon-fb" href="#">
                 <FontAwesomeIcon icon={faFacebook}  style={{ color: "#fff", fontSize: "30px"}} />
               </a>
+                <a className="icon-sc" href="#">
+                   <FontAwesomeIcon icon={faSnapchat}  style={{ color: "#fff", fontSize: "30px"}} />
+                </a>
           </div>
         </section>   
     </footer>

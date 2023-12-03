@@ -1,12 +1,14 @@
 import styles from "./AllNewsPage.module.css";
 import { useGlobalState } from "../context/GlobalStateContext";
 import { useState, useEffect } from "react";
-
-import Navbar from "../components/Navbar";
-
 import { useNews } from "../hooks";
 import { articles } from "../data";
 
+import Navbar from "../components/Navbar";
+import Modal from "../components/Modal";
+import LoginForm from "../components/LoginForm";
+import RegisterForm from "../components/RegisterForm";
+import Message from "../components/Message";
 import Card from "../components/Card";
 import FilterNav from "../components/FilterNav";
 import Footer from "../components/Footer";
@@ -23,6 +25,9 @@ const AllNewsPage = () => {
     setGlobData,
   } = useGlobalState();
 
+  const [modalActiveMessage, setModalActiveMessage] = useState(false);
+  const [modalActiveLogin, setModalActiveLogin] = useState(false);
+  const [modalActiveRegister, setModalActiveRegister] = useState(false);
   const [filters, setFilters] = useState({ country: "us", category: "sports" });
 
   const getGlobData = () => {
@@ -65,6 +70,36 @@ const AllNewsPage = () => {
 
   return (
     <div className={styles.newsContainer}>
+      <Modal active={modalActiveLogin} setActive={setModalActiveLogin}>
+        <LoginForm
+          activeLogin={modalActiveLogin}
+          setActiveLogin={setModalActiveLogin}
+          activeRegister={modalActiveRegister}
+          setActiveRegister={setModalActiveRegister}
+          activeMessage={modalActiveMessage}
+          setActiveMessage={setModalActiveMessage}
+        />
+      </Modal>
+      <Modal active={modalActiveRegister} setActive={setModalActiveRegister}>
+        <RegisterForm
+          activeRegister={modalActiveRegister}
+          setActiveRegister={setModalActiveRegister}
+          activeLogin={modalActiveLogin}
+          setActiveLogin={setModalActiveLogin}
+          activeMessage={modalActiveMessage}
+          setActiveMessage={setModalActiveMessage}
+        />
+      </Modal>
+      <Modal active={modalActiveMessage} setActive={setModalActiveMessage}>
+        <Message
+          activeRegister={modalActiveRegister}
+          setActiveRegister={setModalActiveRegister}
+          activeLogin={modalActiveLogin}
+          setActiveLogin={setModalActiveLogin}
+          activeMessage={modalActiveMessage}
+          setActiveMessage={setModalActiveMessage}
+        />
+      </Modal>
       <Navbar />
       <div className={styles.contentContainer}>
         <div>
@@ -72,7 +107,8 @@ const AllNewsPage = () => {
             {/* COUNTER */}
             {isLoggedIn && !isPayed ? (
               <div className={styles.counterDiv}>
-                <div className={styles.counter}>{counter}</div><p>free articles</p>
+                <div className={styles.counter}>{counter}</div>
+                <p>free articles</p>
               </div>
             ) : (
               ""
@@ -147,6 +183,12 @@ const AllNewsPage = () => {
                   article={article}
                   index={index}
                   onClick={handleCounter}
+                  activeLogin={modalActiveLogin}
+                  setActiveLogin={setModalActiveLogin}
+                  activeRegister={modalActiveRegister}
+                  setActiveRegister={setModalActiveRegister}
+                  activeMessage={modalActiveMessage}
+                  setActiveMessage={setModalActiveMessage}
                 />
               );
             })}

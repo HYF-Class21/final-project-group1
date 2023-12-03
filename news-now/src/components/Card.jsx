@@ -1,6 +1,6 @@
 import styles from "./Card.module.css";
-import { Link } from "react-router-dom";
-// import { useGlobalState } from "../context/GlobalStateContext";
+import { Link, useNavigate } from "react-router-dom";
+import { useGlobalState } from "../context/GlobalStateContext";
 import formatDate from "../utils/formatDate";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,7 +8,21 @@ import {
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Card = ({ article, onClick, index }) => {
+const Card = ({
+  article,
+  onClick,
+  index,
+  activeLogin,
+  setActiveLogin,
+  activeRegister,
+  setActiveRegister,
+  activeMessage,
+  setActiveMessage,
+}) => {
+  const { counter, isLoggedIn } = useGlobalState();
+
+  const navigate = useNavigate();
+
   const categoryColors = [
     ["us", "yellow"],
     ["ie", "#e74c3c"],
@@ -77,15 +91,13 @@ const Card = ({ article, onClick, index }) => {
         </div>
 
         <div className={styles.buttonDiv}>
-          <Link
-            to={`/article/${article.id}`}
-            key={article.id}
-            className={styles.link}
+          <button
+            className={styles.button}
+            disabled={counter === 0 || !isLoggedIn}
+            onClick={() => navigate(`/article/${article.id}`)}
           >
-            <button className={styles.button}>
-              Read More <FontAwesomeIcon icon={faArrowRight} />
-            </button>
-          </Link>
+            Read More <FontAwesomeIcon icon={faArrowRight} />
+          </button>
         </div>
       </div>
     </div>

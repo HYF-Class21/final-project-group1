@@ -13,6 +13,8 @@ const LoginForm = ({
   setActiveLogin,
   activeRegister,
   setActiveRegister,
+  activeMessage,
+  setActiveMessage
 }) => {
   const { isLoggedIn, setIsLoggedIn, isPayed } = useGlobalState();
   const [email, setEmail] = useState("");
@@ -34,7 +36,7 @@ const LoginForm = ({
         } else {
           await Cookies.set("email", email);
           await Cookies.set("isLoggedIn", true);
-          await Cookies.set("counter", String(5), { expires: 7 });
+          // await Cookies.set("counter", String(5), { expires: 7 });
 
           setEmail("");
           setPassword("");
@@ -105,6 +107,7 @@ const LoginForm = ({
             onClick={() => {
               setActiveLogin(false);
               setActiveRegister(true);
+              setActiveMessage(false);
             }}
           >
             Sign up

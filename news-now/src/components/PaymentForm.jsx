@@ -4,7 +4,7 @@ import styles from "./PaymentForm.module.css";
 import visa from "../assets/cc-visa.svg";
 
 const PaymentForm = ({ selectedPlan }) => {
-  const { isPayed, setIsPayed } = useGlobalState();
+  const { isPayed, setIsPayed, setCounter } = useGlobalState();
   const [cardNumber, setCardNumber] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
   const [cvv, setCvv] = useState("");
@@ -19,7 +19,7 @@ const PaymentForm = ({ selectedPlan }) => {
     }
    
     if (!/^\d{16}$/.test(Number(cardNumber))) {
-      setMessage("Invalid card number");
+      setMessage("Invalid card number. It contains 16 numbers.");
       return;
     }
 
@@ -37,11 +37,13 @@ const PaymentForm = ({ selectedPlan }) => {
     }
 
     setIsPayed(true);
+    setCounter(1000000000000000);
     setCardNumber("");
     setExpiryDate("");
     setCvv("");
     setMessage("Payment successful!");
     console.log({ cardNumber, expiryDate, cvv })
+    console.log(isPayed)
   };
 
   return (

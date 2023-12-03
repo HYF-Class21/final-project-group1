@@ -92,13 +92,14 @@ const Card = ({
 
         <div className={styles.buttonDiv}>
           <button
-            className={styles.button}
+            className={counter === 0 || !isLoggedIn ? styles.buttonDisabled : styles.button}
             disabled={counter === 0 || !isLoggedIn}
             onClick={() => navigate(`/article/${article.id}`)}
           >
-            Read More <FontAwesomeIcon icon={faArrowRight} />
+            {isLoggedIn ? ( counter > 0 ? 'Read More' : 'Out Of Free Articles') : 'Log In To Read'} {isLoggedIn && counter > 0 ?  <FontAwesomeIcon icon={faArrowRight} /> : ''} 
           </button>
         </div>
+       
       </div>
     </div>
   );

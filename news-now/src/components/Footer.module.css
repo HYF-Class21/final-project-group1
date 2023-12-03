@@ -1,8 +1,6 @@
-
 .footer {
     background-color:  black;
     text-align: center;
-    /* padding-bottom: 38px; */
     width: auto;
     display: flex;
     flex-direction: row;
@@ -12,12 +10,11 @@
     align-items: center;
     padding-left: 60px;
     padding-right: 60px;
-    /* margin-top: 20px; */
     flex-wrap: wrap;
     align-content: stretch;
     height: 100%;
 }
-.btnSignup{
+.btnSignup {
     outline-color: #000;
 }
 .h3 {
@@ -27,71 +24,50 @@
     color: #f2ebeb ;
     text-decoration: none; 
 }
-.footer input{
-    border: solid rgb(177, 17, 17);
+.a {
+   text-decoration: none;
+}
+.footer input {
+    border: solid #fff;
     border-style: inset;
     border-radius: 9px 9px 9px  9px;
    
 }
-
-.footer button{
-    border:solid red;
+.footer button {
+    border:solid ;
     border-radius: 7px;
-    background-color: blue; 
+    background-color: #fff; 
     font-size: smaller;
      
 }
-
-
-.info{
+.info {
   
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
    
 }
-
-/* .reg h1{
-     font-weight: lighter;
-     color:#fff;
-     font-family: sans-serif;
-     font-style: oblique;
-     text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin-left: -550%;
-     
-}  */
 .info h2 {
     font-family: 'Abril Fatface', serif;
     color: #fff;
-    /* text-align: center;
-    padding-bottom: none;
-    margin-left: -185px;
-    margin-bottom: -40px;
-     */
      margin: 20px;
 }
-/* .text-center {
-    background-color:#fff ;
-} */
-
-section{
-    padding: 0 auto;
+section {
+    padding-bottom: 20px;
     align-self: center;
 }
-.social{
+.social {
     display: flex;
     align-items: center;
     justify-items: center;
     color: #fff;
     margin: 20px;
+    gap: 10px;
 }
-.socialIcons{
+.socialIcons {
     font-size: 30px;
     color: #fff;
 }
-
 
 
 

@@ -25,7 +25,7 @@ const Footer = () => {
                 className="text-center"
                 style={{ backgroundcolor: "rgba(0, 0, 0, 0.2)", }}>
               </div> */}
-              <a className="text-white" href="#">
+              <a className={styles.a} href="#">
                 <h2>2023 © News Now </h2>
               </a>
             {/* </form> */}

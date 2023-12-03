@@ -151,6 +151,18 @@
   margin: 15px 20px 30px 20px;
 }
 
+.buttonDisabled {
+  display: block;
+  width: 200px;
+  padding: 10px;
+  background-color: rgba(128, 128, 128, 0.4);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  margin: 15px 20px 30px 20px;
+}
+
 .link {
   text-decoration: none;
 }

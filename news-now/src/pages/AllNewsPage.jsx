@@ -58,8 +58,10 @@ const AllNewsPage = () => {
   };
 
   const handleCounter = () => {
-    setCounter(counter - 1);
-  };
+    if (counter > 0) {
+      setCounter(counter - 1);
+    }
+  };  
 
   const handleFilterChange = (filterType, value) => {
     setFilters((prevFilters) => ({
@@ -70,36 +72,6 @@ const AllNewsPage = () => {
 
   return (
     <div className={styles.newsContainer}>
-      <Modal active={modalActiveLogin} setActive={setModalActiveLogin}>
-        <LoginForm
-          activeLogin={modalActiveLogin}
-          setActiveLogin={setModalActiveLogin}
-          activeRegister={modalActiveRegister}
-          setActiveRegister={setModalActiveRegister}
-          activeMessage={modalActiveMessage}
-          setActiveMessage={setModalActiveMessage}
-        />
-      </Modal>
-      <Modal active={modalActiveRegister} setActive={setModalActiveRegister}>
-        <RegisterForm
-          activeRegister={modalActiveRegister}
-          setActiveRegister={setModalActiveRegister}
-          activeLogin={modalActiveLogin}
-          setActiveLogin={setModalActiveLogin}
-          activeMessage={modalActiveMessage}
-          setActiveMessage={setModalActiveMessage}
-        />
-      </Modal>
-      <Modal active={modalActiveMessage} setActive={setModalActiveMessage}>
-        <Message
-          activeRegister={modalActiveRegister}
-          setActiveRegister={setModalActiveRegister}
-          activeLogin={modalActiveLogin}
-          setActiveLogin={setModalActiveLogin}
-          activeMessage={modalActiveMessage}
-          setActiveMessage={setModalActiveMessage}
-        />
-      </Modal>
       <Navbar />
       <div className={styles.contentContainer}>
         <div>
@@ -187,8 +159,6 @@ const AllNewsPage = () => {
                   setActiveLogin={setModalActiveLogin}
                   activeRegister={modalActiveRegister}
                   setActiveRegister={setModalActiveRegister}
-                  activeMessage={modalActiveMessage}
-                  setActiveMessage={setModalActiveMessage}
                 />
               );
             })}

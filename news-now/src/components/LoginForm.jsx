@@ -12,9 +12,7 @@ const LoginForm = ({
   activeLogin,
   setActiveLogin,
   activeRegister,
-  setActiveRegister,
-  activeMessage,
-  setActiveMessage
+  setActiveRegister
 }) => {
   const { isLoggedIn, setIsLoggedIn, isPayed } = useGlobalState();
   const [email, setEmail] = useState("");
@@ -107,7 +105,6 @@ const LoginForm = ({
             onClick={() => {
               setActiveLogin(false);
               setActiveRegister(true);
-              setActiveMessage(false);
             }}
           >
             Sign up

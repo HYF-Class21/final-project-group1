@@ -1,17 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useGlobalState } from "../context/GlobalStateContext";
 import styles from "./PaymentForm.module.css";
 import visa from "../assets/cc-visa.svg";
 
 const PaymentForm = ({ selectedPlan }) => {
-  const { isPayed, setIsPayed, setCounter } = useGlobalState();
+  const { isPayed, setIsPayed, setCounter, isLoggedIn } = useGlobalState();
   const [cardNumber, setCardNumber] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
   const [cvv, setCvv] = useState("");
   const [message, setMessage] = useState("");
+  const [buttonText, setButtonText] = useState(
+    selectedPlan.price > 0 ? `Pay ${selectedPlan.price}$` : "Pay"
+  );
+
+  useEffect(() => {
+    if (selectedPlan.price > 0) {
+      setButtonText(`Pay ${selectedPlan.price}$`);
+    } else {
+      setButtonText("Pay");
+    }
+  }, [selectedPlan]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!isLoggedIn) {
+      setMessage("Please, log in to pay")
+      return;
+    }
+
+    if (selectedPlan.price === 0) {
+      setMessage("Please, select your plan");
+      return;
+    }
 
     if (!cardNumber || !expiryDate || !cvv) {
       setMessage("Please fill in all fields");
@@ -41,6 +62,7 @@ const PaymentForm = ({ selectedPlan }) => {
     setCardNumber("");
     setExpiryDate("");
     setCvv("");
+    setButtonText("Pay");
     setMessage("Payment successful!");
     console.log({ cardNumber, expiryDate, cvv })
     console.log(isPayed)
@@ -79,9 +101,7 @@ const PaymentForm = ({ selectedPlan }) => {
           </div>
         </div>
         <div className={styles.buttonVisa}>
-          <button type="submit">
-            {selectedPlan.price > 0 ? `Pay ${selectedPlan.price}$` : "Pay"}
-          </button>
+        <button type="submit">{buttonText}</button>
           <img src={visa} alt="visa" />
         </div>
       </form>

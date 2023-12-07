@@ -151,7 +151,7 @@
   margin: 15px 20px 30px 20px;
 }
 
-.buttonDisabled {
+/* .buttonDisabled {
   display: block;
   width: 200px;
   padding: 10px;
@@ -161,7 +161,7 @@
   border-radius: 5px;
   font-size: 20px;
   margin: 15px 20px 30px 20px;
-}
+} */
 
 .link {
   text-decoration: none;

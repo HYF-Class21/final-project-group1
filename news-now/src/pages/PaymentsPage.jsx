@@ -46,10 +46,12 @@ const PaymentsPage = () => {
         <h1 className={styles.paymentsH1}>Payment Plans</h1>
         <p className={styles.paymentsP}>
           {" "}
-          Select the plan that works best for you and enjoy unlimited access to
-          our content. Whether you choose one of our plans, you'll get exclusive
-          access to the latest news and in-depth articles. Stay informed and
-          stay ahead with our comprehensive coverage across various topics.
+          Explore the world of news with NewsNow! Enjoy up to 5 free articles
+          every day. For unlimited access to our premium content, select one of
+          our subscription plans. Dive into the latest news and in-depth
+          articles, stay informed, and stay ahead with our comprehensive
+          coverage across various topics. Choose a plan that suits you best for
+          uninterrupted access to our exclusive content.
         </p>
         <div className={styles.plansContainer}>
           {paymentPlansData.map((plan) => (

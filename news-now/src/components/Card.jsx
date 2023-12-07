@@ -7,6 +7,8 @@ import {
   faCalendarDays,
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Card = ({
   article,
@@ -19,9 +21,27 @@ const Card = ({
   activeMessage,
   setActiveMessage,
 }) => {
-  const { counter, isLoggedIn } = useGlobalState();
+  const { counter, isLoggedIn, isPayed } = useGlobalState();
 
   const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    if (!isLoggedIn) {
+      toast.warning('Please, log in to read the full article', {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "colored",
+      });
+    } else if (isLoggedIn && counter <= 0 && !isPayed) {
+      navigate('/payments');
+    } else {
+      navigate(`/article/${article.id}`);
+    }
+  };
 
   const categoryColors = [
     ["us", "yellow"],
@@ -92,14 +112,13 @@ const Card = ({
 
         <div className={styles.buttonDiv}>
           <button
-            className={counter === 0 || !isLoggedIn ? styles.buttonDisabled : styles.button}
-            disabled={counter === 0 || !isLoggedIn}
-            onClick={() => navigate(`/article/${article.id}`)}
+            className={styles.button}
+            onClick={handleButtonClick}
           >
-            {isLoggedIn ? ( counter > 0 ? 'Read More' : 'Out Of Free Articles') : 'Log In To Read'} {isLoggedIn && counter > 0 ?  <FontAwesomeIcon icon={faArrowRight} /> : ''} 
+            Read More <FontAwesomeIcon icon={faArrowRight} />
           </button>
+          <ToastContainer />
         </div>
-       
       </div>
     </div>
   );

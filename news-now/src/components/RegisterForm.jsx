@@ -11,9 +11,7 @@ const RegisterForm = ({
   activeLogin,
   setActiveLogin,
   activeRegister,
-  setActiveRegister,
-  activeMessage,
-  setActiveMessage
+  setActiveRegister
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -128,7 +126,6 @@ const RegisterForm = ({
             onClick={() => {
               setActiveRegister(false);
               setActiveLogin(true);
-              setActiveMessage(false);
             }}
           >
             Sign in
